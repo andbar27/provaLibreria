@@ -1,0 +1,12 @@
+{% extends 'libreria/common.html'%}
+
+{% block content %}
+
+<form method="post" action="{% url 'aggiungi_libro'%}">
+    {% csrf_token %}
+    {{ form }}
+    <button name="save">Add Book</button>
+</form>
+
+{% endblock %}
+

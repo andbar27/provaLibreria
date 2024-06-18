@@ -1,0 +1,172 @@
+<div id="content" class="colM">
+          
+    <h1>Add libro</h1>
+    
+    <div id="content-main">
+
+
+
+<form enctype="multipart/form-data" method="post" id="libro_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="tR4WaY54kmU4IhK8VBWEL75R00FVNuLPkiQWwT0ekruENCNnTq1AgQzwA2eT6LZR">
+<div>
+
+
+
+
+
+
+
+<fieldset class="module aligned ">
+
+
+
+  <div class="form-row field-book_id">
+      
+      
+          <div>
+              
+                  <div class="flex-container">
+                      
+                          <label class="required" for="id_book_id">Book id:</label>
+                          
+                              <input type="text" name="book_id" class="vTextField" maxlength="13" required="" id="id_book_id">
+                          
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+  <div class="form-row field-image">
+      
+      
+          <div>
+              
+                  <div class="flex-container">
+                      
+                          <label class="required" for="id_image">Image:</label>
+                          
+                              <input type="file" name="image" accept="image/*" required="" id="id_image">
+                          
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+  <div class="form-row field-title">
+      
+      
+          <div>
+              
+                  <div class="flex-container">
+                      
+                          <label class="required" for="id_title">Title:</label>
+                          
+                              <input type="text" name="title" class="vTextField" maxlength="40" required="" id="id_title">
+                          
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+  <div class="form-row field-author">
+      
+      
+          <div>
+              
+                  <div class="flex-container">
+                      
+                          <label class="required" for="id_author">Author:</label>
+                          
+                              <input type="text" name="author" class="vTextField" maxlength="40" required="" id="id_author">
+                          
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+  <div class="form-row field-is_borrowed">
+      
+      
+          <div>
+              
+                  <div class="flex-container checkbox-row">
+                      
+                          <input type="checkbox" name="is_borrowed" id="id_is_borrowed"><label class="vCheckboxLabel" for="id_is_borrowed">Is borrowed</label>
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+  <div class="form-row field-is_expired">
+      
+      
+          <div>
+              
+                  <div class="flex-container checkbox-row">
+                      
+                          <input type="checkbox" name="is_expired" id="id_is_expired"><label class="vCheckboxLabel" for="id_is_expired">Is expired</label>
+                      
+                  </div>
+              
+          </div>
+      
+      
+  </div>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+
+</div>
+
+
+
+<script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" data-model-name="libro" async="">
+</script>
+
+
+
+
+<script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+    
+    <br class="clear">
+  </div>

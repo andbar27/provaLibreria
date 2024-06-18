@@ -1,0 +1,32 @@
+{% extends 'libreria/common.html'%}
+
+{% block content %}
+
+
+    <div class="container my-5 text-center" style="max-width:580px">
+        <h1>Libreria ITS</h1>
+        <p class="lead">Più libri per tutti!
+        </p>
+        <a href="{% url 'aggiungi_libro' %}" type="button" class="btn btn-primary">Aggiungi Libro</a>
+        <button type="button" class="btn btn-secondary">Contattaci</button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for libro in libri %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ libro.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ libro.title }}</h5>
+                        <p class="card-text">{{ libro.author }}</p>
+                        <a href="#" class="btn btn-primary">Prenota</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}
