@@ -13,19 +13,22 @@ def libreria(request):
 
 def aggiungi_libro(request):
     context = {}
-    libri = Libro.objects.all()
     form = LibroForm()
+    # if request.method == 'POST':
+    #     if "save" in request.POST:
+    print("bellaaaaaa")
+    form = LibroForm(request.POST)
+    #if form.is_valid():
+    book_id = form['book_id']
+    image = form['image']
+    title = form['title']
+    author = form['author']
+    is_borrowed = form['is_borrowed']
+    is_expired = form['is_expired']
+    Libro(book_id=book_id, image=image, title=title,author=author,is_borrowed=is_borrowed,is_expired=is_expired).save()
+    libri = Libro.objects.all()
     context['libri'] = libri
-    if request.method == 'POST':
-        form = LibroForm(request.POST)
-        if form.is_valid():
-            book_id = form.cleaned_data["book_id"]
-            image = form.cleaned_data["image"]
-            title = form.cleaned_data["title"]
-            author = form.cleaned_data["author"]
-            is_borrowed = form.cleaned_data["is_borrowed"]
-            is_expired = form.cleaned_data["is_expired"]
-            print("autor: ", author)
+    print("ciaoooooooo: ", image)
 
 
     context['form'] = form
