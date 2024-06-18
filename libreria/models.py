@@ -9,6 +9,7 @@ class Libro(models.Model):
     author = models.CharField(max_length=40)
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
+    
 
     def __str__(self) -> str:
         return self.title
