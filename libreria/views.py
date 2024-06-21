@@ -10,6 +10,11 @@ def libreria(request):
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/libreria-home.html', {'libri':libri})  
 
+def libro(request):
+    libri = Libro.objects.all()
+    # 2°arg = percorso file  html
+    # mettere file html in proj/app/templates/app 
+    return render(request, 'libreria/libro.html', {'libri':libri})  
 
 def aggiungi_libro(request):
     context = {}
