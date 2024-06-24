@@ -34,5 +34,5 @@ def aggiungi_libro(request):
     print(form) 
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
-    return render(request, 'libreria/add-book.html', {'form': form})  
+    return render(request, 'libreria/add-book.html', context)  
 
