@@ -9,3 +9,4 @@ urlpatterns = [
 ]
 for i in Libro.objects.all():
     urlpatterns.append(path(i.title.replace(" ","-").lower(), views.libro, name=i.title))
+    
