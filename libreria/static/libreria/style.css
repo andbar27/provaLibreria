@@ -1,0 +1,25 @@
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+  
+.image1 {
+    width: 18rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    border: 1px rgb(85, 85, 85) solid;
+  }
+  
+.image2 {
+    width: 18rem;
+    height: 75%;
+    object-fit: cover;
+    height:image1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+  }

@@ -1,4 +1,25 @@
 {% extends 'libreria/common.html'%}
-
 {% block content %}
+
+    <div class="col-sm">
+            <div class="parent" style="width: 18rem;">
+                <img class="image1" src="{{ libro.image.url }}">
+               
+                {% if libro.is_borrowed %}
+                    {% load static %}
+                    <img class="image2" src="{% static 'libreria/Red-Line.png' %}">
+                    
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ libro.title }}</h5>
+                    <p class="card-text">{{ libro.author }}</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit"> Prenota </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

@@ -14,6 +14,9 @@ class Libro(models.Model):
     def __str__(self) -> str:
         return self.title
     
+    def getUrl(self):
+        return self.title.replace(" ","-").lower()
+    
 
 class Membro(models.Model):
     member_id = models.CharField(max_length=13)
