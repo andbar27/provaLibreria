@@ -6,7 +6,8 @@ urlpatterns = [
     # localhost:8000/libreria
     path('', views.libreria, name='home'),
     path('aggiungi_libro', views.aggiungi_libro, name='aggiungi_libro'),
+    #path('profile/<str:username>/', views.membro),  # The profile page
 ]
 for i in Libro.objects.all():
-    urlpatterns.append(path(i.title.replace(" ","-").lower(), views.libro, {"book":i}, name=i.title.replace(" ","%20")))
-    #+"<str:id="+str(i.book_id)">"
+    urlpatterns.append(path(i.book_id, views.libro, {"book":i}, name=i.title.replace(" ","%20")))
+

@@ -1,10 +1,11 @@
 from typing import Any
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
 class Libro(models.Model):
-    book_id = models.CharField(max_length=13)
+    book_id = models.CharField(max_length=13, validators=[MinLengthValidator(13)], primary_key=True)
     image = models.ImageField(upload_to='media/')
     title = models.CharField(max_length=40)
     author = models.CharField(max_length=40)
@@ -15,7 +16,7 @@ class Libro(models.Model):
         return self.title
     
     def getUrl(self):
-        return self.title.replace(" ","-").lower()
+        return self.book_id
     
 
 class Membro(models.Model):
