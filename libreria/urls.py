@@ -5,7 +5,8 @@ from .models import Libro
 urlpatterns = [
     # localhost:8000/libreria
     path('', views.libreria, name='home'),
-    path('aggiungi_libro', views.aggiungi_libro, name='aggiungi_libro'),
+    path('add-book', views.aggiungi_libro, name='aggiungi_libro'),
+    path('add-member', views.aggiungi_membro, name='aggiungi_membro'),
     #path('profile/<str:username>/', views.membro),  # The profile page
 ]
 for i in Libro.objects.all():

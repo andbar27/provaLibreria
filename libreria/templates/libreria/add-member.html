@@ -1,0 +1,33 @@
+{% extends 'libreria/common.html'%}
+
+{% block content %}
+<style>
+    p {
+        margin-top: 0.3%;
+        margin-left: 1%;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 25%;
+
+
+
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    p:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<img src="../../static/libreria/membro.png" border="0" alt="logomembro"  width="120" height="100">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+    <button type="submit">Salva</button>
+    </p>
+</form> 
+
+{% endblock %}
+
