@@ -10,6 +10,13 @@ def libreria(request):
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/libreria-home.html', {'libri':libri})  
 
+def lista_membri(request):
+    libri = Libro.objects.all()
+    membri = Membro.objects.all()
+    # 2°arg = percorso file  html
+    # mettere file html in proj/app/templates/app 
+    return render(request, 'libreria/list-members.html', {'libri':libri, 'membri':membri})  
+
 def libro(request, book):
     if request.method == 'POST':
         if book.is_borrowed:

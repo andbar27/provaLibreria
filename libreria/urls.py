@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.libreria, name='home'),
     path('add-book', views.aggiungi_libro, name='aggiungi_libro'),
     path('add-member', views.aggiungi_membro, name='aggiungi_membro'),
+    path('list-members', views.lista_membri, name='lista_membri'),
     #path('profile/<str:username>/', views.membro),  # The profile page
 ]
 for i in Libro.objects.all():

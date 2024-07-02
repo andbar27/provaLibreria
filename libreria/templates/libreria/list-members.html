@@ -1,0 +1,29 @@
+{% extends 'libreria/common.html'%}
+
+{% block content %}
+
+<div class="container my-5 text-center" style="max-width:580px">
+        <h1>Lista Membri</h1>
+        </p>
+</div>
+
+<div class="container">
+        <div class="row">
+            {% for membro in membri %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    
+                    <img src="../../static/libreria/membro.png" class="card-img-top" alt="...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ membro.name }}</h5>
+                        <p class="card-text">{{ membro.member_id }}</p>
+                        <a href="{% url 'home' %}" class="btn btn-primary">Lista Libri Membro</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
