@@ -11,6 +11,7 @@ class Libro(models.Model):
     author = models.CharField(max_length=40)
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
+    membro = None
 
     def __str__(self) -> str:
         return self.title
@@ -22,6 +23,7 @@ class Libro(models.Model):
 class Membro(models.Model):
     member_id = models.CharField(max_length=13)
     name = models.CharField(max_length=40)
+    list_book: list[Libro] = []
 
     def __str__(self) -> str:
         return self.name

@@ -18,6 +18,7 @@ def lista_membri(request):
     return render(request, 'libreria/list-members.html', {'libri':libri, 'membri':membri})  
 
 def libro(request, book):
+    membri = Membro.objects.all()
     if request.method == 'POST':
         if book.is_borrowed:
             book.is_borrowed = False
