@@ -17,7 +17,7 @@
             {% for libro in libri %}
             <div class="col-sm">
                 <div class="card" style="height:30rem;">
-                    <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%;">
+                    <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;">
                     <div class="card-body" style=" object-fit: contain;">
                         <h5 class="card-title">{{ libro.title }}</h5>
                         <p class="card-text">{{ libro.author }}</p>
