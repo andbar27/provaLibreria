@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .models import Libro
+from .models import Libro, Membro
 
 urlpatterns = [
     # localhost:8000/libreria
@@ -12,4 +12,5 @@ urlpatterns = [
 ]
 for i in Libro.objects.all():
     urlpatterns.append(path(i.book_id, views.libro, {"book":i}, name=i.title.replace(" ","%20")))
+    urlpatterns.append(path(i.book_id+"/modify", views.modifica_libro, {"book":i}, name=i.title.replace(" ","%20") + "-modify"))
 

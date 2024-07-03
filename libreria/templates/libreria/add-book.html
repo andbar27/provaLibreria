@@ -2,13 +2,6 @@
 
 {% block content %}
 
-{% comment %} 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salva</button>
-</form> 
-{% endcomment %}
 <style>
     table {
         margin-left: 1%;
@@ -29,7 +22,7 @@
 </style>
 
 <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="csrfmiddlewaretoken" value="HaVXT9LhyBRassdwdAAIi3n27ZqR0il9Vq1n65bE4NHR4nRpqf8l6p8OEFRJz7aC">
+    {% csrf_token %}
 
     <table>
         <tr>

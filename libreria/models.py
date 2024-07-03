@@ -23,7 +23,6 @@ class Libro(models.Model):
 class Membro(models.Model):
     member_id = models.CharField(max_length=13)
     name = models.CharField(max_length=40)
-    list_book: list[Libro] = []
 
     def __str__(self) -> str:
         return self.name
