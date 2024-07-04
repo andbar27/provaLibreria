@@ -1,0 +1,20 @@
+{% extends 'libreria/common.html'%}
+{% block content %}
+<center>
+    <div class="col-sm">
+        <p></p>
+        <div class="parent" style="width: 18rem;">
+                <img class="image1" src="../../static/libreria/membro.png">
+               
+                <div class="card-body">
+                    <h5 class="card-title">{{ membro.name }}</h5>
+                    <p class="card-text">{{ membro.member_id }}</p>
+                    <a href="m{{ membro.member_id }}/modify" class="btn btn-primary">Modifica membro</a>
+                </div>
+                <!--QUI METTERE LISTA LIBRI IN PRESTITO-->
+            </div>
+        </div>
+    </div>
+</center>
+
+{% endblock %}

@@ -22,7 +22,7 @@
 </style>
 
 <form method="post" enctype="multipart/form-data">
-    <input type="hidden" name="csrfmiddlewaretoken" value="dwAeWsuhg9gjBGWowzGBXY8GIyxpNLePrMGE9oUEMl60dBAhJeeeLkTsfeYhmA3i">
+    {% csrf_token %}
     <table>
         <p></p>
         <tr>
@@ -34,13 +34,13 @@
             <td>
                 <label for="id_member_id">Member id:</label>
             </td><td>
-                <input type="text" name="member_id" maxlength="13" required="" id="id_member_id">
+                <input type="text" name="member_id" maxlength="13" required="" id="id_member_id" value="{{ membro.member_id }}">
             </td>
         </tr><tr>
             <td>
                 <label for="id_name">Name:</label>
             </td><td>
-                <input type="text" name="name" maxlength="40" required="" id="id_name">
+                <input type="text" name="name" maxlength="40" required="" id="id_name" value="{{ membro.name }}">
             </td>
         </tr><tr>
             <td>

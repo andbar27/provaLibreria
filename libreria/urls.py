@@ -14,3 +14,7 @@ for i in Libro.objects.all():
     urlpatterns.append(path(i.book_id, views.libro, {"book":i}, name=i.title.replace(" ","%20")))
     urlpatterns.append(path(i.book_id+"/modify", views.modifica_libro, {"book":i}, name=i.title.replace(" ","%20") + "-modify"))
 
+for j in Membro.objects.all():
+    urlpatterns.append(path("m"+j.member_id, views.membro, {"member":j}, name=j.name.replace(" ","%20")))
+    urlpatterns.append(path("m"+j.member_id+"/modify", views.modifica_membro, {"member":j}, name=j.name.replace(" ","%20") + "-modify"))
+

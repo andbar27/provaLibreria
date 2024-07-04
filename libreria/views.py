@@ -13,12 +13,14 @@ def libreria(request):
 def lista_membri(request):
     libri = Libro.objects.all()
     membri = Membro.objects.all()
+    context = {'libri':libri, 'membri':membri}
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
-    return render(request, 'libreria/list-members.html', {'libri':libri, 'membri':membri})  
+    return render(request, 'libreria/list-members.html', context)  
 
 def libro(request, book):
     membri = Membro.objects.all()
+    context = {'membri':membri, 'libro':book}
     if request.method == 'POST':
         if book.is_borrowed:
             book.is_borrowed = False
@@ -27,7 +29,13 @@ def libro(request, book):
             book.is_borrowed = True
             book.save()
 
-    return render(request, 'libreria/libro.html', {'libro':book})  
+    return render(request, 'libreria/libro.html', context) 
+
+def membro(request, member):
+    libri = Libro.objects.all()
+    context = {'membro':member, 'libri':libri}
+
+    return render(request, 'libreria/membro.html', context)  
 
 def aggiungi_libro(request):
     context = {}
@@ -44,7 +52,6 @@ def aggiungi_libro(request):
     libri = Libro.objects.all()
     context['libri'] = libri
     
-    print(form) 
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  
@@ -65,7 +72,6 @@ def modifica_libro(request, book):
     context['libri'] = libri
     context['libro'] = book
     
-    print(form) 
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  
@@ -85,8 +91,27 @@ def aggiungi_membro(request):
     membri = Membro.objects.all()
     context['membri'] = membri
     
-    print(form) 
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-member.html', context)  
+
+def modifica_membro(request, member):
+    context = {}
+    if request.method == 'POST':
+        form = MembroForm(request.POST, request.FILES, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Reindirizza alla home dopo l'inserimento
+    else:
+        form = MembroForm()
+    
+    context['form'] = form
+    
+    libri = Libro.objects.all()
+    context['libri'] = libri
+    context['membro'] = member
+
+    # 2°arg = percorso file  html
+    # mettere file html in proj/app/templates/app 
+    return render(request, 'libreria/add-member.html', context) 
 
