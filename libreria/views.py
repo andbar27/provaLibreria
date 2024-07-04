@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Libro, Membro
-from libreria.forms import LibroForm, MembroForm, LibroFormEdit
+from libreria.forms import LibroForm, MembroForm
 
 # Create your views here.
 
@@ -52,22 +52,23 @@ def aggiungi_libro(request):
 def modifica_libro(request, book):
     context = {}
     if request.method == 'POST':
-        form = LibroFormEdit(request.POST, request.FILES, instance=book)
+        form = LibroForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
             return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else:
-        form = LibroFormEdit()
+        form = LibroForm()
     
     context['form'] = form
     
     libri = Libro.objects.all()
     context['libri'] = libri
+    context['libro'] = book
     
     print(form) 
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
-    return render(request, 'libreria/modify-book.html', context)  
+    return render(request, 'libreria/add-book.html', context)  
 
 def aggiungi_membro(request):
     context = {}

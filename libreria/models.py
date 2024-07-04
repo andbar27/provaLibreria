@@ -21,7 +21,7 @@ class Libro(models.Model):
     
 
 class Membro(models.Model):
-    member_id = models.CharField(max_length=13)
+    member_id = models.CharField(max_length=13, primary_key=True)
     name = models.CharField(max_length=40)
 
     def __str__(self) -> str:

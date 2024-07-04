@@ -38,7 +38,7 @@
                     <label for="id_book_id">Book id:</label>
                 </td>
                 <td>
-                    <input type="text" name="book_id" maxlength="13" required="" id="id_book_id">
+                    <input type="text" name="book_id" maxlength="13" required="" id="id_book_id" value="{{ libro.book_id }}">
                 </td>
             </p>
         </tr>
@@ -59,7 +59,7 @@
                     <label for="id_title">Title:</label>
                 </td>
                 <td>
-                    <input type="text" name="title" maxlength="40" required="" id="id_title">
+                    <input type="text" name="title" maxlength="40" required="" id="id_title" value="{{ libro.title }}">
                 </td>
             </p>
         </tr>
@@ -70,7 +70,7 @@
                     <label for="id_author">Author:</label>
                 </td>
                 <td>
-                    <input type="text" name="author" maxlength="40" required="" id="id_author">
+                    <input type="text" name="author" maxlength="40" required="" id="id_author" value="{{ libro.author }}">
                 </td>
             </p>
         </tr>
@@ -81,7 +81,7 @@
                     <label for="id_is_borrowed">Is borrowed:</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="is_borrowed" id="id_is_borrowed">
+                    <input type="checkbox" name="is_borrowed" id="id_is_borrowed" {% if libro.is_borrowed %}checked{% endif %}>
                 </td>
             </p>
         </tr>
@@ -92,7 +92,7 @@
                     <label for="id_is_expired">Is expired:</label>
                 </td>
                 <td>
-                    <input type="checkbox" name="is_expired" id="id_is_expired">
+                    <input type="checkbox" name="is_expired" id="id_is_expired" {% if libro.is_expired %}checked{% endif %}>
                 </td>
             </p>
         </tr>
