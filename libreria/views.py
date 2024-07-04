@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Libro, Membro
 from libreria.forms import LibroForm, MembroForm, CercaLibroForm
 
+
 # Create your views here.
 
 def libreria(request):
@@ -19,6 +20,8 @@ def libreria(request):
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/libreria-home.html', context)  
 
+
+
 def lista_membri(request):
     libri = Libro.objects.all()
     membri = Membro.objects.all()
@@ -26,6 +29,10 @@ def lista_membri(request):
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/list-members.html', context)  
+
+
+
+
 
 def libro(request, book):
     membri = Membro.objects.all()
@@ -44,6 +51,8 @@ def libro(request, book):
 
     return render(request, 'libreria/libro.html', context) 
 
+
+
 def membro(request, member):
     libri = Libro.objects.all()
     context = {'membro':member, 'libri':libri}
@@ -53,6 +62,10 @@ def membro(request, member):
             return redirect('lista_membri')
 
     return render(request, 'libreria/membro.html', context)  
+
+
+
+
 
 def aggiungi_libro(request):
     context = {}
@@ -72,6 +85,8 @@ def aggiungi_libro(request):
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  
+
+
 
 def modifica_libro(request, book):
     context = {}
@@ -93,6 +108,10 @@ def modifica_libro(request, book):
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  
 
+
+
+
+
 def aggiungi_membro(request):
     context = {}
     if request.method == 'POST':
@@ -111,6 +130,8 @@ def aggiungi_membro(request):
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-member.html', context)  
+
+
 
 def modifica_membro(request, member):
     context = {}
