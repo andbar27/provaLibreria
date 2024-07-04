@@ -22,18 +22,26 @@ def libro(request, book):
     membri = Membro.objects.all()
     context = {'membri':membri, 'libro':book}
     if request.method == 'POST':
-        if book.is_expired:
-            book.is_expired = False
-            book.save()
-        else:
-            book.is_expired = True
-            book.save()
+        if 'escludi' in request.POST:
+            if book.is_expired:
+                book.is_expired = False
+                book.save()
+            else:
+                book.is_expired = True
+                book.save()
+        elif 'elimina' in request.POST:
+            book.delete()
+            return redirect('home')
 
     return render(request, 'libreria/libro.html', context) 
 
 def membro(request, member):
     libri = Libro.objects.all()
     context = {'membro':member, 'libri':libri}
+    if request.method == 'POST':
+        if 'elimina' in request.POST:
+            member.delete()
+            return redirect('lista_membri')
 
     return render(request, 'libreria/membro.html', context)  
 
