@@ -15,7 +15,7 @@
                     <p class="card-text">{{ libro.author }}</p>
                     <form method="POST">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-primary" name="escludi">Escludi</button>
+                        <button type="submit" class="btn btn-primary" name="escludi">Invalida</button>
                     </form>
                     <a href="{{ libro.book_id }}/modify" class="btn btn-primary">Modifica</a>
                     <form method="POST">
