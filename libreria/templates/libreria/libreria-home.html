@@ -10,6 +10,13 @@
         <a href="{% url 'aggiungi_libro' %}" type="button" class="btn btn-primary">Aggiungi Libro</a>
         <a href="{% url 'aggiungi_membro' %}" type="button" class="btn btn-primary">Aggiungi Membro</a>
         <a href="{% url 'lista_membri' %}" type="button" class="btn btn-primary">Lista Membri</a>
+        <p></p>
+        <form method="get" action="/libreria/">
+            <p>
+                <input type="text" name="query" value="i" maxlength="40" required="" id="id_query">
+                <button type="submit" class="btn btn-primary">Cerca Libro</button>
+            </p>
+        </form>
     </div>
 
     <div class="container">

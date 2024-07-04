@@ -14,3 +14,8 @@ class MembroForm(forms.ModelForm):
     class Meta:
         model = Membro
         fields = ['member_id', 'name']
+
+
+class CercaLibroForm(forms.Form):
+
+    query = forms.CharField(label='Cerca libro', max_length=40)

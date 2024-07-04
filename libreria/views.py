@@ -1,14 +1,23 @@
 from django.shortcuts import render, redirect
 from .models import Libro, Membro
-from libreria.forms import LibroForm, MembroForm
+from libreria.forms import LibroForm, MembroForm, CercaLibroForm
 
 # Create your views here.
 
 def libreria(request):
+    form = None
+    form = CercaLibroForm(request.GET or None)
     libri = Libro.objects.all()
+    
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        libri = [libro for libro in libri if query.lower() in libro.title.lower()]
+    
+    context = {'libri':libri, 'form': form}
+
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
-    return render(request, 'libreria/libreria-home.html', {'libri':libri})  
+    return render(request, 'libreria/libreria-home.html', context)  
 
 def lista_membri(request):
     libri = Libro.objects.all()
