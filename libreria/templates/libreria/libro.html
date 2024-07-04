@@ -6,7 +6,7 @@
             <div class="parent" style="width: 18rem;">
                 <img class="image1" src="{{ libro.image.url }}">
                
-                {% if libro.is_borrowed %}
+                {% if libro.is_expired %}
                     {% load static %}
                     <img class="image2" src="{% static 'libreria/Red-Line.png' %}">
                 {% endif %}
@@ -15,7 +15,7 @@
                     <p class="card-text">{{ libro.author }}</p>
                     <form method="POST">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-primary">Prenota</button>
+                        <button type="submit" class="btn btn-primary">Escludi</button>
                         <a href="{{ libro.book_id }}/modify" class="btn btn-primary">Modifica libro</a>
                     </form>
                 </div>

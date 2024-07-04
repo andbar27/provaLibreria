@@ -22,11 +22,11 @@ def libro(request, book):
     membri = Membro.objects.all()
     context = {'membri':membri, 'libro':book}
     if request.method == 'POST':
-        if book.is_borrowed:
-            book.is_borrowed = False
+        if book.is_expired:
+            book.is_expired = False
             book.save()
         else:
-            book.is_borrowed = True
+            book.is_expired = True
             book.save()
 
     return render(request, 'libreria/libro.html', context) 
