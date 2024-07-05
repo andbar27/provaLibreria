@@ -32,38 +32,6 @@
     {% block content %}
     
     {% endblock %}
-    <script>
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('id_image');
-        const filePath = document.getElementById('filePath');
-
-        dropzone.addEventListener('click', () => fileInput.click());
-
-        dropzone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropzone.style.borderColor = '#000';
-        });
-
-        dropzone.addEventListener('dragleave', () => {
-            dropzone.style.borderColor = '#cccccc';
-        });
-
-        dropzone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropzone.style.borderColor = '#cccccc';
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                fileInput.files = files;
-                filePath.textContent = `Selected file: ${files[0].name}`;
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (fileInput.files.length > 0) {
-                filePath.textContent = `Selected file: ${fileInput.files[0].name}`;
-            }
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

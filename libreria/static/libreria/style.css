@@ -39,15 +39,3 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
-.dropzone {
-  border: 2px dashed #cccccc;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.file-path {
-  margin-top: 0px;
-}
