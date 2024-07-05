@@ -17,7 +17,7 @@
                 <tr>
                     <p>
                         <td>
-                            <label for="id_book_id">Book id:</label>
+                            <label for="id_book_id">ISBN:</label>
                         </td>
                         <td>
                             <input type="text" name="book_id" maxlength="13" required="" id="id_book_id" value="{{ libro.book_id }}">
@@ -30,7 +30,13 @@
                             <label for="id_image">Image:</label>
                         </td>
                         <td>
-                            <input type="file" name="image" accept="image/*" required="" id="id_image">
+                            <div class="dropzone" id="dropzone">
+                                Drag & Drop an image here or click to upload
+                                <input type="file" name="image" accept="image/*" required="" id="id_image" style="display: none;">
+                                <div class="file-path" id="filePath"></div>
+                                <br>
+                            </div>
+                            
                         </td>
                     </p>
                 </tr>
@@ -93,6 +99,7 @@
 
     </table>
 </form>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 {% endblock %}
