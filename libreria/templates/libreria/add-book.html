@@ -86,7 +86,9 @@
                 </tr>   
             </table>
         </td><td></td><td>
-            <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;" >
+            {% if libro.image %}
+                <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;" >
+            {% endif %}
         </td>
 
     </table>
