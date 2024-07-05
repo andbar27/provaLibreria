@@ -11,8 +11,8 @@ def libreria(request):
     libri = Libro.objects.all()
     
     if form.is_valid():
-        query = form.cleaned_data['query']
-        libri = [libro for libro in libri if query.lower() in libro.title.lower()]
+        query = form.cleaned_data['query'].lower()
+        libri = [libro for libro in libri if query in libro.title.lower() or query in libro.author.lower() or query == libro.book_id]
     
     context = {'libri':libri, 'form': form}
 

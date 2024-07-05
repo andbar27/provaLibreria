@@ -13,8 +13,12 @@
         <p></p>
         <form method="get" action="/libreria/">
             <p>
-                <input type="text" name="query" maxlength="40" required="" id="id_query">
-                <button type="submit" class="btn btn-primary">Cerca Libro</button>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="query" placeholder="Cerca per Titolo, Autore o Id" aria-label="Titolo, Autore o Id" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Cerca Libro</button>
+                    </div>
+                </div>
             </p>
         </form>
     </div>
