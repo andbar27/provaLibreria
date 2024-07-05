@@ -1,3 +1,21 @@
+table {
+  margin-left: 1%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
+
+td, th {
+  border: 0px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
 .parent {
   position: relative;
   top: 0;
@@ -23,19 +41,3 @@
   background-size: cover;
 }
  
-table {
-  margin-left: 1%;
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 25%;
-}
-
-td, th {
-  border: 0px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
