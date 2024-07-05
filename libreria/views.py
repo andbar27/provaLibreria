@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Libro, Membro
-from libreria.forms import LibroForm, MembroForm, CercaLibroForm
+from libreria.forms import LibroForm, MembroForm, CercaLibroForm, PrestaLibroForm
 
 
 # Create your views here.
@@ -48,6 +48,10 @@ def libro(request, book):
         elif 'elimina' in request.POST:
             book.delete()
             return redirect('home')
+        elif 'prenota' in request.POST:
+            form = PrestaLibroForm(request.POST)
+            if form.is_valid():
+                member_id = form.cleaned_data['prenota']
 
     return render(request, 'libreria/libro.html', context) 
 

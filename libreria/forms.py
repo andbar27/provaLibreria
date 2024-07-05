@@ -19,3 +19,8 @@ class MembroForm(forms.ModelForm):
 class CercaLibroForm(forms.Form):
 
     query = forms.CharField(label='Cerca libro', max_length=40)
+
+
+class PrestaLibroForm(forms.Form):
+
+    membro_id = forms.CharField(label="Prenota", max_length=13)
