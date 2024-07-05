@@ -13,15 +13,19 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ libro.title }}</h5>
                     <p class="card-text">{{ libro.author }}</p>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary" name="escludi">Invalida</button>
-                    </form>
-                    <a href="{{ libro.book_id }}/modify" class="btn btn-primary">Modifica</a>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary" name="elimina">Elimina</button>
-                    </form>
+                    <center>
+                        <a href="{{ libro.book_id }}/modify" class="btn btn-primary" style="margin-bottom:2%;">Modifica</a>
+                    </center>
+                        <form method="POST" style="width : fit-content; float: left;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary" name="escludi">Scaduto</button>
+                        </form>
+                        
+                        <form method="POST" style="width : fit-content; float: right;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary" style="width:91px;"name="elimina">Elimina</button>
+                        </form>
+                    
                 </div>
             </div>
         </div>

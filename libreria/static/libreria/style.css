@@ -1,24 +1,42 @@
 .parent {
-    position: relative;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-  }
+  position: relative;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
   
 .image1 {
-    width: 18rem;
-    position: relative;
-    top: 0;
-    left: 0;
-    border: 1px rgb(85, 85, 85) solid;
-  }
+  width: 18rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  border: 1px rgb(85, 85, 85) solid;
+}
   
 .image2 {
-    width: 18rem;
-    height: 75%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-  }
+  width: 18rem;
+  height: 75%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+ 
+table {
+  margin-left: 1%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
+
+td, th {
+  border: 0px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
