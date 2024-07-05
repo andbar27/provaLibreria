@@ -31,7 +31,7 @@
                     {% csrf_token %}        
                     <div class="input-group mb-3">
                         <select class="custom-select" id="inputGroupSelect04">
-                            <option selected>Choose...</option>
+                            <option selected>Lista Membri</option>
                             {% for membro in membri %}
                                 <option value={{ membro.member_id }}>{{ membro.name }}</option>
                             {% endfor %}
