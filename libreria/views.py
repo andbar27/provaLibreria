@@ -51,7 +51,7 @@ def libro(request, book):
             return redirect('home')
         elif 'prenota' in request.POST:
             form = AssegnaLibroForm(request.POST, instance=book)
-            if form.is_valid() and book.member == None:
+            if form.is_valid():
                 form.save()
                 return redirect('home')
         else:
@@ -68,8 +68,6 @@ def membro(request, member):
         if 'elimina' in request.POST:
             member.delete()
             return redirect('lista_membri')
-        if 'restituisci' in request.POST:
-            redirect('return_book', member.member_id, book_id)
 
             
     return render(request, 'libreria/membro.html', context)  
