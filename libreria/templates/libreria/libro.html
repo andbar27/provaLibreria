@@ -31,10 +31,11 @@
                 <form method="POST" style="width : fit-content; float: center;">
                     {% csrf_token %}        
                     <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect04">
+                        
+                        <select class="custom-select" id="inputGroupSelect04" name="member">
                             <option selected>Lista Membri</option>
                             {% for membro in membri %}
-                                <option value="{{ membro.member_id }}" name="member">{{ membro.name }}</option>
+                                <option value="{{ membro.member_id }}">{{ membro.name }}</option>
                             {% endfor %}
                         </select>
                         <div class="input-group-append">

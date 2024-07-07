@@ -21,6 +21,9 @@ class CercaLibroForm(forms.Form):
     query = forms.CharField(label='Cerca libro', max_length=40)
 
 
-class PrestaLibroForm(forms.Form):
+class AssegnaLibroForm(forms.ModelForm):
+    class Meta:
+        model = Libro
+        fields = ['member']
 
-    membro_id = forms.CharField(label="Prenota", max_length=13)
+    member = forms.ModelChoiceField(queryset=Membro.objects.all(), label="Membro")

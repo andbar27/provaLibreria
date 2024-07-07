@@ -18,7 +18,7 @@ class Libro(models.Model):
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
     
-    member = models.ForeignKey(Membro, on_delete=models.SET_NULL, null=True, blank=True, related_name='members')
+    member = models.ForeignKey(Membro, on_delete=models.SET_NULL, null=True, blank=True, related_name='books')
 
     def __str__(self) -> str:
         return self.title

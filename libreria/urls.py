@@ -9,6 +9,7 @@ urlpatterns = [
     path('add-member', views.aggiungi_membro, name='aggiungi_membro'),
     path('list-members', views.lista_membri, name='lista_membri'),
     #path('profile/<str:username>/', views.membro),  # The profile page
+    path('membro/<str:member_id>/return_book/<str:book_id>/', views.restituisci_libro, name='return_book'),
 ]
 for i in Libro.objects.all():
     urlpatterns.append(path(i.book_id, views.libro, {"book":i}, name=i.title.replace(" ","%20")))

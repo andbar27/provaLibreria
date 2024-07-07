@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Libro, Membro
-from libreria.forms import LibroForm, MembroForm, CercaLibroForm, PrestaLibroForm
+from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroForm
 
 
 # Create your views here.
@@ -37,6 +37,7 @@ def lista_membri(request):
 def libro(request, book):
     membri = Membro.objects.all()
     context = {'membri':membri, 'libro':book}
+    form = AssegnaLibroForm(instance=book)
     if request.method == 'POST':
         if 'escludi' in request.POST:
             if book.is_expired:
@@ -49,24 +50,35 @@ def libro(request, book):
             book.delete()
             return redirect('home')
         elif 'prenota' in request.POST:
-            form = PrestaLibroForm(request.POST)
-            if form.is_valid():
-                member_id = form.cleaned_data['prenota']
-
+            form = AssegnaLibroForm(request.POST, instance=book)
+            if form.is_valid() and book.member == None:
+                form.save()
+                return redirect('home')
+        else:
+            form = AssegnaLibroForm(instance=book)
+    context['form'] = form
     return render(request, 'libreria/libro.html', context) 
 
 
 
 def membro(request, member):
-    libri = Libro.objects.all()
+    libri = member.books.all()
     context = {'membro':member, 'libri':libri}
     if request.method == 'POST':
         if 'elimina' in request.POST:
             member.delete()
             return redirect('lista_membri')
+        if 'restituisci' in request.POST:
+            redirect('return_book', member.member_id, book_id)
 
+            
     return render(request, 'libreria/membro.html', context)  
 
+def restituisci_libro(request, member_id, book_id):
+    libro = get_object_or_404(Libro, book_id=book_id, member_id=member_id)
+    libro.member = None
+    libro.save()
+    return redirect('home')
 
 
 

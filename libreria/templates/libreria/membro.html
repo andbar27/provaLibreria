@@ -16,6 +16,31 @@
                     <button type="submit" class="btn btn-danger" name="elimina">Elimina</button>
                 </form>
                 <!--QUI METTERE LISTA LIBRI IN PRESTITO-->
+                <div class="container">
+                    <div class="row">
+                        {% for libro in libri %}
+                        <div class="col-sm">
+                            <div class="card" style="height:30rem; margin-bottom:5%;">
+                                
+                                <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;">
+                                <div class="card-body" style=" object-fit: contain;">
+                                    <center>
+                                        <h5 class="card-title">{{ libro.title }}</h5>
+                                        <p class="card-text">{{ libro.author }}</p>
+                                        <a href="{{libro.getUrl}}" class="btn btn-primary">Maggiori Informazioni</a>
+                                        <form method="post" action="{% url 'return_book' member_id=membro.member_id book_id=libro.book_id %}" style="display:inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn-danger">Restituisci</button>
+                                        </form>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                            <li>Nessun libro associato a questo membro.</li>   
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
