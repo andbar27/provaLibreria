@@ -46,6 +46,18 @@
             </div>
         </div>
     </div>
+    <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+            
+            <img src="../../static/libreria/membro.png" class="card-img-top" alt="...">
+            
+            <div class="card-body">
+                <h5 class="card-title">{{ libro.member.name }}</h5>
+                <p class="card-text">{{ libro.member.member_id }}</p>
+                <a href="m{{ membro.member_id }}" class="btn btn-primary">Dettagli Membro</a>
+            </div>
+        </div>
+    </div>
 </center>
 
 {% endblock %}
