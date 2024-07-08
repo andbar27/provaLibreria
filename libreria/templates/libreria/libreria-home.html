@@ -12,7 +12,7 @@
         <a href="{% url 'lista_membri' %}" type="button" class="btn btn-primary">Lista Membri</a>
         <p>
         </p>
-        <form method="get" action="/libreria/">
+        <form method="get" action="{% url 'home' %}">
             <p>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="query" placeholder="Cerca per Titolo, Autore o ISBN" aria-label="Titolo, Autore o ISBN" aria-describedby="basic-addon2">
@@ -35,7 +35,7 @@
                         <center>
                             <h5 class="card-title">{{ libro.title }}</h5>
                             <p class="card-text">{{ libro.author }}</p>
-                            <a href="{{ libro.getUrl }}" class="btn btn-primary">Maggiori Informazioni</a>
+                            <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-primary">Maggiori Informazioni</a>
                         </center>
                     </div>
                 </div>

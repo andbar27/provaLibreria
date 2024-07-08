@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ membro.name }}</h5>
                         <p class="card-text">{{ membro.member_id }}</p>
-                        <a href="m/{{ membro.member_id }}" class="btn btn-primary">Dettagli Membro</a>
+                        <a href="{% url 'member' member_id=membro.member_id %}" class="btn btn-primary">Dettagli Membro</a>
                     </div>
                 </div>
             </div>

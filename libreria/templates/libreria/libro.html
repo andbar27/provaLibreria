@@ -15,7 +15,7 @@
                     <p class="card-text">{{ libro.author }}</p>
                     <p class="card-text">ISBN: {{ libro.book_id }}</p>
                     <center>
-                        <a href="{{ libro.book_id }}/modify" class="btn btn-primary" style="margin-bottom:2%;">Modifica</a>
+                        <a href="{% url 'book-modify' book_id=libro.book_id %}" class="btn btn-primary" style="margin-bottom:2%;">Modifica</a>
                     </center>
                         <form method="POST" style="width : fit-content; float: left;">
                             {% csrf_token %}
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    {% if libro.is_borrowed == True %}
+    {% if libro.member %}
     <div class="col-sm">
         <div class="card" style="width: 18rem;">
             
@@ -55,7 +55,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ libro.member.name }}</h5>
                 <p class="card-text">{{ libro.member.member_id }}</p>
-                <a href="m/{{ libro.member.member_id }}" class="btn btn-primary">Dettagli Membro</a>
+                <a href="{% url 'member' member_id=libro.member.member_id %}" class="btn btn-primary">Dettagli Membro</a>
             </div>
         </div>
     </div>

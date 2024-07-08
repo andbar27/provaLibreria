@@ -57,6 +57,7 @@ def libro(request, book_id):
                 if form.is_valid():
                     form.save()
                     book.is_borrowed = True
+                    book.save()
                     return redirect('book', book_id)
         else:
             form = AssegnaLibroForm(instance=book)
@@ -163,7 +164,7 @@ def modifica_membro(request, member_id):
         form = MembroForm(request.POST, request.FILES, instance=member)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Reindirizza alla home dopo l'inserimento
+            return redirect('member', member_id=member_id)  # 
     else:
         form = MembroForm()
     
