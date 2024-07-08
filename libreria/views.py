@@ -6,7 +6,6 @@ from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroFo
 # Create your views here.
 
 def libreria(request):
-    form = None
     form = CercaLibroForm(request.GET or None)
     libri = Libro.objects.all()
     
@@ -34,7 +33,8 @@ def lista_membri(request):
 
 
 
-def libro(request, book):
+def libro(request, book_id):
+    book = get_object_or_404(Libro, book_id=book_id)
     membri = Membro.objects.all()
     context = {'membri':membri, 'libro':book}
     form = AssegnaLibroForm(instance=book)
@@ -52,12 +52,12 @@ def libro(request, book):
             return redirect('home')
         
         elif 'prenota' in request.POST:
-            #if not book.is_borrowed:
+            if not book.is_expired and not book.is_borrowed:
                 form = AssegnaLibroForm(request.POST, instance=book)
                 if form.is_valid():
                     form.save()
                     book.is_borrowed = True
-                    return redirect(book.book_id)
+                    return redirect('book', book_id)
         else:
             form = AssegnaLibroForm(instance=book)
 
@@ -71,7 +71,7 @@ def restituisci_libro(request, member_id, book_id):
     libro.member = None
     libro.is_borrowed = False
     libro.save()
-    return redirect('m' + member_id)
+    return redirect("member", member_id)
 
 
 
@@ -96,7 +96,8 @@ def aggiungi_libro(request):
 
 
 
-def modifica_libro(request, book):
+def modifica_libro(request, book_id):
+    book = get_object_or_404(Libro, book_id=book_id)
     context = {}
     if request.method == 'POST':
         form = LibroForm(request.POST, request.FILES, instance=book)
@@ -120,7 +121,8 @@ def modifica_libro(request, book):
 
 
 
-def membro(request, member):
+def membro(request, member_id):
+    member = get_object_or_404(Membro, member_id=member_id)
     libri = member.books.all()
     context = {'membro':member, 'libri':libri}
     if request.method == 'POST':
@@ -154,7 +156,8 @@ def aggiungi_membro(request):
 
 
 
-def modifica_membro(request, member):
+def modifica_membro(request, member_id):
+    member = get_object_or_404(Membro, member_id=member_id)
     context = {}
     if request.method == 'POST':
         form = MembroForm(request.POST, request.FILES, instance=member)

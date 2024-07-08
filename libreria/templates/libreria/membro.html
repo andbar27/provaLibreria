@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ membro.name }}</h5>
                     <p class="card-text">{{ membro.member_id }}</p>
-                    <a href="m{{ membro.member_id }}/modify" class="btn btn-primary">Modifica membro</a>
+                    <a href="{{ membro.member_id }}/modify" class="btn btn-primary">Modifica membro</a>
                 </div>
                 <form method="POST">
                     {% csrf_token %}
@@ -27,7 +27,7 @@
                                     <center>
                                         <h5 class="card-title">{{ libro.title }}</h5>
                                         <p class="card-text">{{ libro.author }}</p>
-                                        <a href="{{libro.getUrl}}" class="btn btn-primary">Maggiori Informazioni</a>
+                                        <a href="/libreria/{{libro.book_id}}" class="btn btn-primary">Maggiori Informazioni</a>
                                         <form method="post" action="{% url 'return_book' member_id=membro.member_id book_id=libro.book_id %}" style="display:inline;">
                                             {% csrf_token %}
                                             <button type="submit" class="btn-danger">Restituisci</button>

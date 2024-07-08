@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    {% if libro.is_borrowed %}
+    {% if libro.is_borrowed == True %}
     <div class="col-sm">
         <div class="card" style="width: 18rem;">
             
@@ -55,7 +55,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ libro.member.name }}</h5>
                 <p class="card-text">{{ libro.member.member_id }}</p>
-                <a href="m{{ libro.member.member_id }}" class="btn btn-primary">Dettagli Membro</a>
+                <a href="m/{{ libro.member.member_id }}" class="btn btn-primary">Dettagli Membro</a>
             </div>
         </div>
     </div>
