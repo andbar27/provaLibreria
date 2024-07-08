@@ -13,7 +13,7 @@ class Membro(models.Model):
 class Libro(models.Model):
     book_id = models.CharField(max_length=13, validators=[MinLengthValidator(13)], primary_key=True)
     image = models.ImageField(upload_to='media/')
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=40)
     author = models.CharField(max_length=40)
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
