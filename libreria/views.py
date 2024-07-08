@@ -46,38 +46,32 @@ def libro(request, book):
             else:
                 book.is_expired = True
                 book.save()
+
         elif 'elimina' in request.POST:
             book.delete()
             return redirect('home')
+        
         elif 'prenota' in request.POST:
-            form = AssegnaLibroForm(request.POST, instance=book)
-            if form.is_valid():
-                form.save()
-                return redirect('home')
+            #if not book.is_borrowed:
+                form = AssegnaLibroForm(request.POST, instance=book)
+                if form.is_valid():
+                    form.save()
+                    book.is_borrowed = True
+                    return redirect(book.book_id)
         else:
             form = AssegnaLibroForm(instance=book)
+
     context['form'] = form
     return render(request, 'libreria/libro.html', context) 
 
 
 
-def membro(request, member):
-    libri = member.books.all()
-    context = {'membro':member, 'libri':libri}
-    if request.method == 'POST':
-        if 'elimina' in request.POST:
-            member.delete()
-            return redirect('lista_membri')
-
-            
-    return render(request, 'libreria/membro.html', context)  
-
 def restituisci_libro(request, member_id, book_id):
     libro = get_object_or_404(Libro, book_id=book_id, member_id=member_id)
     libro.member = None
+    libro.is_borrowed = False
     libro.save()
-    return redirect('home')
-
+    return redirect('m' + member_id)
 
 
 
@@ -123,6 +117,19 @@ def modifica_libro(request, book):
     return render(request, 'libreria/add-book.html', context)  
 
 
+
+
+
+def membro(request, member):
+    libri = member.books.all()
+    context = {'membro':member, 'libri':libri}
+    if request.method == 'POST':
+        if 'elimina' in request.POST:
+            member.delete()
+            return redirect('lista_membri')
+
+            
+    return render(request, 'libreria/membro.html', context)  
 
 
 
