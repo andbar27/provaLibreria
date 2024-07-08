@@ -1,0 +1,28 @@
+{% extends 'libreria/common.html'%}
+
+{% block content %}
+
+Libri Totali: {{ n_libri }}
+Membri Totali: {{ n_membri }}
+
+Libri Prestati: {{ n_libri_prestati }}
+<p>Elenco Libri Prestati:</p>
+{% for prestati in libri_prestati %}
+    <p> {{ prestati.title }} </p>
+{% endfor %}
+
+Libri Scaduti: {{ n_libri_scaduti }}
+<p>Elenco Libri Scaduti:</p>
+{% for scaduti in libri_scaduti %}
+    <p> {{ scaduti.title }} </p>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -45,6 +45,8 @@ def libro(request, book_id):
                 book.save()
             else:
                 book.is_expired = True
+                book.member = None
+                book.is_borrowed = False
                 book.save()
 
         elif 'elimina' in request.POST:
@@ -178,3 +180,21 @@ def modifica_membro(request, member_id):
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-member.html', context) 
 
+
+
+
+
+def statistiche_libreria(request):
+    members = list(Membro.objects.all())
+    books = list(Libro.objects.all())
+    n_members = len(members)
+    n_books = len(books)
+    books_borrowed = [libro for libro in books if libro.is_borrowed]
+    n_books_borrowed = len(books_borrowed)
+    books_expired = [libro for libro in books if libro.is_expired]
+    n_books_expired = len(books_expired)
+    context = {'membri':members, 'libri':books, 'n_membri':n_members, 'n_libri':n_books, 'libri_prestati':books_borrowed, 'n_libri_prestati':n_books_borrowed}
+    context['libri_scaduti'] = books_expired
+    context['n_libri_scaduti'] = n_books_expired
+    return render(request, 'libreria/stats_libreria.html', context)
+    
