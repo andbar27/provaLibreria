@@ -55,13 +55,13 @@ def libro(request, book_id):
         
         elif 'prenota' in request.POST:
             if not book.is_expired and not book.is_borrowed:
-                form = AssegnaLibroForm(request.POST, instance=book)
+                form = AssegnaLibroForm(request.POST, instance=book) #se voglio conservarlo posso metterlo sopra l'if
                 if form.is_valid():
                     form.save()
                     book.is_borrowed = True
                     book.save()
-                    return redirect('book', book_id)
-        else:
+                    return redirect('book', book_id) #se non ci fosse il form prima degli if non passeremmo al context form 
+        else: 
             form = AssegnaLibroForm(instance=book)
 
     context['form'] = form
@@ -85,7 +85,7 @@ def aggiungi_libro(request):
         if form.is_valid():
             form.save()
             return redirect('home')  # Reindirizza alla home dopo l'inserimento
-    else:
+    else: # questo else è utile solo per conservare il form sbagliato
         form = LibroForm()
     
     context['form'] = form
@@ -106,7 +106,7 @@ def modifica_libro(request, book_id):
         form = LibroForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Reindirizza alla home dopo l'inserimento
+            return redirect('home')  # Reindirizza alla home dopo l'inserimento, meglio farlo a dettagli libro
     else:
         form = LibroForm()
     
@@ -146,7 +146,7 @@ def aggiungi_membro(request):
             form.save()
             return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else:
-        form = MembroForm()
+        form = MembroForm() #passare nel context un bool per fare pop up in caso di errore
     
     context['form'] = form
     
