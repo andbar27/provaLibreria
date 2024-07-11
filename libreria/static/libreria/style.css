@@ -31,13 +31,12 @@ tr:nth-child(even) {
   border: 1px rgb(85, 85, 85) solid;
 }
   
-.image2 {
-  width: 18rem;
-  height: 75%;
-  object-fit: cover;
+.image2 { 
+  
+  object-fit:contain;
+  height:70%; 
+  max-width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
+  
 }
  
