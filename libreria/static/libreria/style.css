@@ -15,29 +15,38 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+body{
+  background-color: hsl(210, 13%, 9%);
+  color:rgb(189, 165, 201);
+}
+
+.card{
+  border:1px solid rgb(189, 165, 201);
+  background-color: hsl(210, 13%, 9%);
+}
 
 .parent {
   position: relative;
   top: 0;
   left: 0;
   white-space: nowrap;
+  text-align: center;
 }
   
 .image1 {
   object-fit: contain; 
   height:70%; 
   width:18rem;
-  
-  position: relative;
-  top: 0;
+  position: relative; 
   left: 0;
 }
   
 .image2 { 
-  
-  object-fit:contain;
-  height:70%; 
-  max-width: 100%;
   position: absolute;
+  top: 15%;
+  left: -17.5%;
+  object-fit: contain;
+  height: 70%;
+  max-width: 135%;
 }
  

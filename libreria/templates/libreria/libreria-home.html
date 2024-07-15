@@ -33,8 +33,9 @@
                     <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;">
                     {% if libro.is_expired %}
                         {% load static %}
-                        <img class="image2" src="{% static 'libreria/expired.png' %}">
+                        <img class="card-img-top" style="position: absolute; left: 0; object-fit:contain; height:70%; min-width:18rem;" src="{% static 'libreria/expired.png' %}">
                     {% endif %}
+                    
                     <div class="card-body" style=" object-fit: contain;">
                         <center>
                             <h5 class="card-title">{{ libro.title }}</h5>
