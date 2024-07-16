@@ -11,14 +11,16 @@
         <div class="row">
             {% for membro in membri %}
             <div class="col-sm">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     
                     <img src="../../static/libreria/membro.png" class="card-img-top" alt="...">
                     
                     <div class="card-body">
-                        <h5 class="card-title">{{ membro.name }}</h5>
-                        <p class="card-text">{{ membro.member_id }}</p>
-                        <a href="{% url 'member' member_id=membro.member_id %}" class="btn btn-primary">Dettagli Membro</a>
+                        <center>
+                            <h5 class="card-title">{{ membro.name }}</h5>
+                            <p class="card-text">{{ membro.member_id }}</p>
+                            <a href="{% url 'member' member_id=membro.member_id %}" class="btn btn-primary">Dettagli Membro</a>
+                        </center>
                     </div>
                 </div>
             </div>

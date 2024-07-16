@@ -1,3 +1,8 @@
+body{
+  background-color: #212121;
+  color:rgb(169, 214, 180);
+}
+
 table {
   margin-left: 1%;
   font-family: arial, sans-serif;
@@ -15,14 +20,23 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-body{
-  background-color: hsl(210, 13%, 9%);
-  color:rgb(189, 165, 201);
-}
 
 .card{
-  border:1px solid rgb(189, 165, 201);
-  background-color: hsl(210, 13%, 9%);
+  border:1px solid rgb(169, 214, 180);
+  background-color: #212121;
+  height:30rem; 
+  margin-bottom:5%;
+}
+
+.card-img-top{
+  margin-top: 5%;
+  object-fit: contain; 
+  height:70%; 
+  min-width:18rem;
+}
+
+.card-body{
+  object-fit: contain;
 }
 
 .parent {
@@ -50,3 +64,61 @@ body{
   max-width: 135%;
 }
  
+
+
+
+.tab {
+  width: 250px;
+  background: rgb(169, 214, 180);
+  font-family: arial, sans-serif;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+}
+
+.tab__title {
+  color: rgb(20, 23, 26);
+  font-weight: bold;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgb(169, 214, 180);
+  font-size: 0.95rem;
+}
+
+.tab__data {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  border-right: 1px solid rgb(169, 214, 180);
+  border-left: 1px solid rgb(169, 214, 180);
+  border-bottom: 1px solid rgb(169, 214, 180);
+}
+
+.tab__right {
+  width: 60%;
+  border-right: 1px solid rgb(169, 214, 180);
+}
+
+.tab__left {
+  width: 40%;
+  text-align: end;
+}
+
+.item {
+  color: rgb(20, 23, 26);
+  padding: 3px 0;
+  background-color: white;
+}
+
+.tab__right .item {
+  padding-left: 0.8em;
+}
+
+.tab__left .item {
+  padding-right: 0.8em;
+}
+
+.item:nth-child(even) {
+  background: rgb(234, 235, 234);
+}

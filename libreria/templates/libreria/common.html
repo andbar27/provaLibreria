@@ -12,17 +12,16 @@
     
     {% load static %}
     <link rel="stylesheet" href={% static "libreria/style.css" %}>
+    
     <title>Fullstack Libreria</title>
 
-    
-    
 </head>
 
 <body>
     <!-- Image and text -->
-    <nav class="navbar navbar-dark" style="background-color:hsl(228.3 46.988% 53.414%);">
+    <nav class="navbar navbar-dark" style="background-color:rgb(169, 214, 180);">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color:#212121;">
                 {% load static %}
                 <img src="{% static 'libreria/logo.png' %}" alt="" width="10%" height="10%" class="d-inline-block align-top">
                 Fullstack Libreria

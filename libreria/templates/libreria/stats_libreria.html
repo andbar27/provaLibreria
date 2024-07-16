@@ -5,6 +5,31 @@
 Libri Totali: {{ n_libri }}
 Membri Totali: {{ n_membri }}
 
+
+<div class="tab">
+    <div class="tab__title">Stato Libri</div>
+    <div class="tab__data">
+        <div class="tab__right">
+            {%for l in libri%}
+                <div class="item">{{l}}</div>
+            {% endfor %}
+        </div>
+        <div class="tab__left">
+            {%for l in libri%}
+                {%if l.is_expired%}
+                    <div class="item">Scaduto</div>
+                {%elif l.is_borrowed%}
+                    <div class="item">Prenotato</div>
+                {%else%}
+                    <div class="item">Disponibile</div>
+                {%endif%}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
 Libri Prestati: {{ n_libri_prestati }}
 <p>Elenco Libri Prestati:</p>
 {% for prestati in libri_prestati %}

@@ -28,15 +28,23 @@
         <div class="row">
             {% for libro in libri %}
             <div class="col-sm">
-                <div class="card" style="height:30rem; margin-bottom:5%;">
+                <div class="card">
                     
-                    <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;">
+                    <img src="{{ libro.image.url }}" class="card-img-top" alt="...">
                     {% if libro.is_expired %}
                         {% load static %}
-                        <img class="card-img-top" style="position: absolute; left: 0; object-fit:contain; height:70%; min-width:18rem;" src="{% static 'libreria/expired.png' %}">
+                        <img class="card-img-top" style="position: absolute; left: 0;" alt="SCADUTO" src=" {% static 'libreria/expired.png' %}">
+                    {%elif libro.is_borrowed%}
+                        {% load static %}
+                        <img class="card-img-top" style="position: absolute; left: 20%; max-height:15%;" alt="PRENOTATO" src="{% static 'libreria/borrowed.png' %}">
+                    {%elif libro.is_borrowed and libro.is_expired%}
+                        {% load static %}
+                        <img class="card-img-top" style="position: absolute; left: 0;" alt="SCADUTO" src="{% static 'libreria/expired.png' %}">
+                        {% load static %}
+                        <img class="card-img-top" style="position: absolute; left: 20%; max-height:15%;" alt="PRENOTATO" src="{% static 'libreria/borrowed.png' %}">
                     {% endif %}
                     
-                    <div class="card-body" style=" object-fit: contain;">
+                    <div class="card-body">
                         <center>
                             <h5 class="card-title">{{ libro.title }}</h5>
                             <p class="card-text">{{ libro.author }}</p>
