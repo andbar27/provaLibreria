@@ -3,24 +3,6 @@ body{
   color:rgb(169, 214, 180);
 }
 
-table {
-  margin-left: 1%;
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 25%;
-}
-
-td, th {
-  border: 0px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-
 .card{
   border:1px solid rgb(169, 214, 180);
   background-color: #212121;
@@ -64,9 +46,6 @@ tr:nth-child(even) {
   max-width: 135%;
 }
  
-
-
-
 .tab {
   width: 250px;
   background: rgb(169, 214, 180);
@@ -79,15 +58,16 @@ tr:nth-child(even) {
 }
 
 .tab__title {
-  color: rgb(20, 23, 26);
+  text-align: center;
+  color: #212121;
   font-weight: bold;
   padding: 5px 10px;
   border-bottom: 1px solid rgb(169, 214, 180);
-  font-size: 0.95rem;
+  font-size: 1.35rem;
 }
 
 .tab__data {
-  font-size: 0.8rem;
+  font-size: 1.25rem;
   display: flex;
   justify-content: space-between;
   border-right: 1px solid rgb(169, 214, 180);
@@ -96,8 +76,8 @@ tr:nth-child(even) {
 }
 
 .tab__right {
-  width: 60%;
-  border-right: 1px solid rgb(169, 214, 180);
+  width: -moz-available;
+  border-right: 2px solid rgb(169, 214, 180);
 }
 
 .tab__left {
@@ -105,10 +85,35 @@ tr:nth-child(even) {
   text-align: end;
 }
 
+.tab__center{
+  width:100%;
+  text-align: center;
+}
+
 .item {
-  color: rgb(20, 23, 26);
+  color: #212121;
   padding: 3px 0;
   background-color: white;
+}
+
+.item__right{
+  width:40%;
+  color: #212121;
+
+  padding-right: 0.8em;
+  border-left: 2px solid rgb(169, 214, 180);
+  text-align: end;
+  float:right;
+}
+
+.item__left{
+  width:100%;
+  color: #212121;
+  background-color: white;
+
+  padding-left: 0.8em;
+  text-align: start;
+  float:left;
 }
 
 .tab__right .item {
@@ -120,5 +125,9 @@ tr:nth-child(even) {
 }
 
 .item:nth-child(even) {
+  background: rgb(234, 235, 234);
+}
+
+.item_left:nth-child(even) {
   background: rgb(234, 235, 234);
 }
