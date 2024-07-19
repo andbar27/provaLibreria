@@ -12,7 +12,9 @@
     
     {% load static %}
     <link rel="stylesheet" href={% static "libreria/style.css" %}>
-    
+
+    {% load static %}
+    <link rel="icon" href={% static "libreria/logo.png"%}>
     <title>Fullstack Libreria</title>
 
 </head>
@@ -23,8 +25,8 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}" style="color:#212121;">
                 {% load static %}
-                <img src="{% static 'libreria/logo.png' %}" alt="" width="10%" height="10%" class="d-inline-block align-top">
-                Fullstack Libreria
+                <img src="{% static 'libreria/logo.png' %}" alt="" width="12%" height="12%" class="d-inline-block align-top">
+                <h2 style="margin-bottom:0;">Fullstack Libreria</h2>
             </a>
         </div>
     </nav>

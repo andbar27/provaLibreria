@@ -12,22 +12,23 @@
                     <div class="tab__title">Stato Libri</div>
                     <div class="tab__data">
                         <div class="tab__center">
-                            {%for l in libri%}
+                            {% for l in libri %}
                                 
-                                <div class="item__left">{{l}} 
-                                {%if l.is_borrowed and l.is_expired%}
-                                    <a class="item__right">Scaduto & Presatto</a>
-                                {%elif l.is_expired%}
-                                    <a class="item__right">Scaduto</a>
-                                {%elif l.is_borrowed%}
-                                    <a class="item__right">Prestato</a>
-                                {%else%}
-                                    <a class="item__right">Disponibile</a>
-                                {%endif%}
+                                <div class="item__left">{{l}} </div>
+                                <div class="item__right">
+                                    {% if l.is_borrowed and l.is_expired %}
+                                        Scaduto & Presatto
+                                    {% elif l.is_expired %}
+                                        Scaduto
+                                    {% elif l.is_borrowed %}
+                                        Prestato
+                                    {% else %}
+                                        Disponibile
+                                    {% endif %}
                                 </div>
                             {% endfor %}
+                            
                         </div>
-
                     </div>
                 </div>
             </div>
