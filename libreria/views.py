@@ -130,6 +130,9 @@ def membro(request, member_id):
     context = {'membro':member, 'libri':libri}
     if request.method == 'POST':
         if 'elimina' in request.POST:
+            for libro in libri:
+                libro.is_borrowed=False
+                libro.save()
             member.delete()
             return redirect('lista_membri')
 
