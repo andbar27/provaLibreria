@@ -15,18 +15,10 @@
                     <h5 class="card-title">{{ libro.title }}</h5>
                     <p class="card-text">{{ libro.author }}</p>
                     <p class="card-text">ISBN: {{ libro.book_id }}</p>
+                    <p class="card-text">Book Shelf: {{ libro.shelf }}</p>
                     <center>
                         <a href="{% url 'book-modify' book_id=libro.book_id %}" class="btn btn-primary" style="margin-bottom:2%;">Modifica</a>
                     </center>
-                    <form method="POST" style="width : fit-content; float: left;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary" style="margin-bottom:5%" name="escludi">Scaduto</button>
-                    </form>
-                        
-                    <form method="POST" style="width : fit-content; float: right;">
-                        {% csrf_token %}    
-                        <button type="submit" class="btn btn-danger" style="width:91px; margin-bottom:5%"name="elimina">Elimina</button>
-                    </form>
                     
                     <form method="POST" style="width : fit-content; float: center;">
                         {% csrf_token %}        

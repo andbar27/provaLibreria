@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <center>
                             <h5 class="card-title">{{ libro.title }}</h5>
-                            <p class="card-text">{{ libro.author }}</p>
+                            <p class="card-text">{{ libro.author }} - {{ libro.shelf }}</p>
                             <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-primary">Maggiori Informazioni</a>
                         </center>
                     </div>

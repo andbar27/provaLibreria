@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Libro, Membro
-from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroForm
+from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroForm, PasswordForm
 
-
+password = "ciao"
 # Create your views here.
 
 def libreria(request):
@@ -54,7 +54,7 @@ def libro(request, book_id):
             return redirect('home')
         
         elif 'prenota' in request.POST:
-            if not book.is_expired and not book.is_borrowed:
+            if not book.is_expired:
                 form = AssegnaLibroForm(request.POST, instance=book) #se voglio conservarlo posso metterlo sopra l'if
                 if form.is_valid():
                     form.save()
@@ -80,16 +80,21 @@ def restituisci_libro(request, member_id, book_id):
 
 def aggiungi_libro(request):
     context = {}
+    password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
     if request.method == 'POST':
         form = LibroForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')  # Reindirizza alla home dopo l'inserimento
+        password_form = PasswordForm(request.POST or None)
+        if form.is_valid() and password_form.is_valid():
+            if 'image' not in request.FILES:
+                libro.image = './static/libreria/libro.png'
+            if password_form.cleaned_data.get('password', "") == password:
+                form.save()
+                return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else: # questo else è utile solo per conservare il form sbagliato
         form = LibroForm()
     
     context['form'] = form
-    
+    context['password_form'] = password_form
     libri = Libro.objects.all()
     context['libri'] = libri
     
@@ -102,16 +107,19 @@ def aggiungi_libro(request):
 def modifica_libro(request, book_id):
     book = get_object_or_404(Libro, book_id=book_id)
     context = {}
+    password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
     if request.method == 'POST':
         form = LibroForm(request.POST, request.FILES, instance=book)
-        if form.is_valid():
-            form.save()
-            return redirect('home')  # Reindirizza alla home dopo l'inserimento, meglio farlo a dettagli libro
+        password_form = PasswordForm(request.POST or None)
+        if form.is_valid() and password_form.is_valid():
+            if password_form.cleaned_data.get('password', "") == password:
+                form.save()
+                return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else:
         form = LibroForm()
     
     context['form'] = form
-    
+    context['password_form'] = password_form
     libri = Libro.objects.all()
     context['libri'] = libri
     context['libro'] = book
@@ -143,16 +151,20 @@ def membro(request, member_id):
 
 def aggiungi_membro(request):
     context = {}
+    password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
+
     if request.method == 'POST':
         form = MembroForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')  # Reindirizza alla home dopo l'inserimento
+        password_form = PasswordForm(request.POST or None)
+        if form.is_valid() and password_form.is_valid():
+            if password_form.cleaned_data.get('password', "") == password:
+                form.save()
+                return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else:
         form = MembroForm() #passare nel context un bool per fare pop up in caso di errore
     
     context['form'] = form
-    
+    context['password_form'] = password_form
     membri = Membro.objects.all()
     context['membri'] = membri
     
@@ -165,16 +177,19 @@ def aggiungi_membro(request):
 def modifica_membro(request, member_id):
     member = get_object_or_404(Membro, member_id=member_id)
     context = {}
+    password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
     if request.method == 'POST':
         form = MembroForm(request.POST, request.FILES, instance=member)
-        if form.is_valid():
-            form.save()
-            return redirect('member', member_id=member_id)  # 
+        password_form = PasswordForm(request.POST or None)
+        if form.is_valid() and password_form.is_valid():
+            if password_form.cleaned_data.get('password', "") == password:
+                form.save()
+                return redirect('member', member_id=member_id)  # 
     else:
         form = MembroForm()
     
     context['form'] = form
-    
+    context['password_form'] = password_form
     libri = Libro.objects.all()
     context['libri'] = libri
     context['membro'] = member

@@ -15,11 +15,13 @@
                             <div class="tab__center">
                                 <div class="item"><label for="id_book_id">ISBN:</label><input type="text" name="book_id" maxlength="13" required="" id="id_book_id" value="{{ libro.book_id }}"></div>
                                 <div class="item"><label for="id_image">Image:</label><input type="file" name="image" accept="image/*" id="id_image"></div>
-                                <div class="item"><label for="id_title">Title:</label><input type="text" name="title" maxlength="40" required="" id="id_title" value="{{ libro.title }}"></div>
-                                <div class="item"><label for="id_author">Author:</label><input type="text" name="author" maxlength="40" required="" id="id_author" value="{{ libro.author }}"></div>
+                                <div class="item"><label for="id_title">Title:</label><input type="text" name="title" maxlength="100" required="" id="id_title" value="{{ libro.title }}"></div>
+                                <div class="item"><label for="id_author">Author:</label><input type="text" name="author" maxlength="100" required="" id="id_author" value="{{ libro.author }}"></div>
+                                <div class="item"><label for="id_shelf">Shelf:</label><input type="text" name="shelf" maxlength="3" id="id_shelf" value="{{ libro.shelf }}"></div>
                                 <div class="item"><label for="id_is_borrowed">Is borrowed:</label><input type="checkbox" name="is_borrowed" id="id_is_borrowed" {% if libro.is_borrowed %}checked{% endif %}></div>
                                 <div class="item"><label for="id_is_expired">Is expired:</label><input type="checkbox" name="is_expired" id="id_is_expired" {% if libro.is_expired %}checked{% endif %}></div>
                                 <div class="item"><button type="submit" class="btn btn-dark">Salva</button></div>
+                                
                             </div>
                         </div>
                     </div>
@@ -27,6 +29,8 @@
             </div>
         </div>
     </div>  
+    <label for="id_password">Password</label>
+        {{ password_form.password }}  <!-- Questo renderizza il campo password -->
     {% if libro.image %}
         <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;" >
     {% endif %}

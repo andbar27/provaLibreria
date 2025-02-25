@@ -6,7 +6,11 @@ class LibroForm(forms.ModelForm):
 
     class Meta:
         model = Libro
-        fields = ['book_id', 'image', 'title', 'author', 'is_borrowed', 'is_expired']
+        fields = ['book_id', 'image', 'title', 'author', 'shelf', 'is_borrowed', 'is_expired']
+
+
+class PasswordForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput(), required=False, initial="")
 
 
 class MembroForm(forms.ModelForm):
