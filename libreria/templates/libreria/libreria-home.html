@@ -18,7 +18,7 @@
         <form method="get" action="{% url 'home' %}">
             <p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="query" placeholder="Cerca per Titolo, Autore o ISBN" aria-label="Titolo, Autore o ISBN" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="query" placeholder="Cerca per Titolo, Autore o ISBN" aria-label="Titolo, Autore o ISBN" aria-describedby="basic-addon2" value="{{ request.GET.query|default:''|escape }}">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary">Cerca Libro</button>
                     </div>

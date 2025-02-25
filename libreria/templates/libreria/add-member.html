@@ -13,8 +13,8 @@
                         <div class="tab__title">Dati Membro</div>
                         <div class="tab__data">
                             <div class="tab__center">
-                                <div class="item"><label for="id_member_id">Member id:</label><input type="text" name="member_id" maxlength="13" required="" id="id_member_id" value="{{ membro.member_id }}"></div>
-                                <div class="item"><label for="id_name">Name:</label><input type="text" name="name" maxlength="40" required="" id="id_name" value="{{ membro.name }}"></div>
+                                <div class="item"><label for="id_member_id">Member id:</label><input type="text" name="member_id" maxlength="13" required="" id="id_member_id" value="{{ membro.member_id|escape }}"></div>
+                                <div class="item"><label for="id_name">Name:</label><input type="text" name="name" maxlength="40" required="" id="id_name" value="{{ membro.name|escape }}"></div>
                                 <div class="item"><button type="submit" class="btn btn-dark">Salva</button></div>
                             </div>
                         </div>

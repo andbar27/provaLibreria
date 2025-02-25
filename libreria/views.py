@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Libro, Membro
 from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroForm, PasswordForm
 
-password = "ciao"
-# Create your views here.
+from django.conf import settings
+
+password = settings.LIBRERIA_PASSWORD
 
 def libreria(request):
     form = CercaLibroForm(request.GET or None)
@@ -116,7 +117,7 @@ def modifica_libro(request, book_id):
                 form.save()
                 return redirect('home')  # Reindirizza alla home dopo l'inserimento
     else:
-        form = LibroForm()
+        form = LibroForm(instance=book)
     
     context['form'] = form
     context['password_form'] = password_form
