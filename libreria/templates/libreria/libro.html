@@ -43,7 +43,8 @@
         <div class="col-sm">
             <div class="card" style="width: 18rem;">
                 
-                <img src="../../static/libreria/membro.png" class="card-img-top" alt="...">
+                {% load static %}
+                <img src="{% static 'libreria/membro.png' %}" class="card-img-top" alt="...">
                 
                 <div class="card-body">
                     <h5 class="card-title">{{ libro.member.name }}</h5>

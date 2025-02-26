@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Libro, Membro
 from libreria.forms import LibroForm, MembroForm, CercaLibroForm, AssegnaLibroForm, PasswordForm
-
+from django.templatetags.static import static
 from django.conf import settings
 
 password = settings.LIBRERIA_PASSWORD
@@ -87,7 +87,7 @@ def aggiungi_libro(request):
         password_form = PasswordForm(request.POST or None)
         if form.is_valid() and password_form.is_valid():
             if 'image' not in request.FILES:
-                libro.image = './static/libreria/libro.png'
+                libro.image = static('libreria/libro.png')
             if password_form.cleaned_data.get('password', "") == password:
                 form.save()
                 return redirect('home')  # Reindirizza alla home dopo l'inserimento

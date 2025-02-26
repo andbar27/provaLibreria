@@ -4,7 +4,8 @@
     <div class="col-sm">
         <p></p>
         <div class="parent" style="width: 18rem;">
-                <img class="image1" src="../../static/libreria/membro.png">
+                {% load static %}
+                <img class="image1" src="{% static 'libreria/membro.png' %}">
                
                 <div class="card-body">
                     <h5 class="card-title">{{ membro.name }}</h5>

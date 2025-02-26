@@ -12,8 +12,8 @@
             {% for membro in membri %}
             <div class="col-sm">
                 <div class="card">
-                    
-                    <img src="../../static/libreria/membro.png" class="card-img-top" alt="...">
+                    {% load static %}
+                    <img src="{% static 'libreria/membro.png' %}" class="card-img-top" alt="...">
                     
                     <div class="card-body">
                         <center>

@@ -8,7 +8,8 @@
         <div class="row" style="display: inline-flex; width:100%">
             <div class="col-sm" style="margin-top: 5%;">
                 <center>
-                    <img src="../../static/libreria/libro.png" alt="logolibro" style="width:8rem; height:8rem;">
+                    {% load static %}
+                    <img src="{% static 'libreria/libro.png' %}" alt="logolibro" style="width:8rem; height:8rem;">
                     <div class="tab" style="width:50%">
                         <div class="tab__title">Dati Libro</div>
                         <div class="tab__data">
