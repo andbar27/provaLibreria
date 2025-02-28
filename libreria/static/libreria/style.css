@@ -1,6 +1,6 @@
 body{
   background-color: #212121;
-  color:rgb(250, 255, 89);
+  color:rgb(255, 255, 255);
 }
 
 p{
@@ -12,6 +12,16 @@ p{
   background-color: #212121;
   height:30rem; 
   margin-bottom:1.5rem;
+}
+
+.row{
+  display: contents;
+  width: 100%;
+  justify-content: center;
+}
+
+h1{
+  color:rgb(250, 255, 89);
 }
 
 .navbar-brand{
@@ -70,10 +80,10 @@ p{
 
 .tab__title {
   text-align: center;
-  color: rgb(169, 214, 180);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   padding: 5px 10px;
-  border-bottom: 1px solid rgb(250, 255, 89);
+  border-bottom: 1px solid rgb(240, 240, 240);
   font-size: 1.35rem;
 }
 
@@ -135,13 +145,13 @@ p{
 }
 
 .item:nth-child(even) {
-  background: rgb(250, 255, 89);
+  background: rgb(82, 82, 82);
 }
 
 .item__left:nth-of-type(4n+3) {
-  background: rgb(250, 255, 89);
+  background: rgb(82, 82, 82);
 }
 
 .item__right:nth-of-type(4n+4) {
-  background: rgb(250, 255, 89);
+  background: rgb(82, 82, 82);
 }

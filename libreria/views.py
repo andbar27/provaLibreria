@@ -81,6 +81,7 @@ def restituisci_libro(request, member_id, book_id):
 
 def aggiungi_libro(request):
     context = {}
+    form = LibroForm()
     password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
     if request.method == 'POST':
         form = LibroForm(request.POST, request.FILES)
@@ -91,8 +92,6 @@ def aggiungi_libro(request):
             if password_form.cleaned_data.get('password', "") == password:
                 form.save()
                 return redirect('home')  # Reindirizza alla home dopo l'inserimento
-    else: # questo else è utile solo per conservare il form sbagliato
-        form = LibroForm()
     
     context['form'] = form
     context['password_form'] = password_form
@@ -116,15 +115,13 @@ def modifica_libro(request, book_id):
             if password_form.cleaned_data.get('password', "") == password:
                 form.save()
                 return redirect('home')  # Reindirizza alla home dopo l'inserimento
-    else:
-        form = LibroForm(instance=book)
     
     context['form'] = form
     context['password_form'] = password_form
     libri = Libro.objects.all()
     context['libri'] = libri
     context['libro'] = book
-    
+    form = LibroForm(instance=book)
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  

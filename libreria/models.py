@@ -25,8 +25,8 @@ class Membro(models.Model):
 class Libro(models.Model):
     book_id = models.CharField(max_length=13, validators=[MinLengthValidator(13)], primary_key=True)
     image = models.ImageField(upload_to='media/', blank=True, null=True, default="./static/libreria/libro.png", validators=[validate_image])
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=500)
+    author = models.CharField(max_length=200)
     shelf = models.CharField(max_length=3, default='000')
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
