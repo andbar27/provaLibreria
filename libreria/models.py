@@ -27,7 +27,8 @@ class Libro(models.Model):
     image = models.ImageField(upload_to='media/', blank=True, null=True, default="./static/libreria/libro.png", validators=[validate_image])
     title = models.CharField(max_length=500)
     author = models.CharField(max_length=200)
-    shelf = models.CharField(max_length=3, default='000')
+    category = models.CharField(max_length=500, default='')
+    shelf = models.CharField(max_length=3, default='999')
     is_borrowed = models.BooleanField(default=False)
     is_expired = models.BooleanField(default=False)
     

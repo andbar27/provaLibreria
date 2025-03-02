@@ -107,6 +107,7 @@ def aggiungi_libro(request):
 def modifica_libro(request, book_id):
     book = get_object_or_404(Libro, book_id=book_id)
     context = {}
+    form = LibroForm(instance=book)
     password_form = PasswordForm()  # Assicuriamoci che esista anche per una richiesta GET
     if request.method == 'POST':
         form = LibroForm(request.POST, request.FILES, instance=book)
@@ -121,7 +122,6 @@ def modifica_libro(request, book_id):
     libri = Libro.objects.all()
     context['libri'] = libri
     context['libro'] = book
-    form = LibroForm(instance=book)
     # 2°arg = percorso file  html
     # mettere file html in proj/app/templates/app 
     return render(request, 'libreria/add-book.html', context)  

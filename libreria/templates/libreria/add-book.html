@@ -18,6 +18,7 @@
                                 <div class="item"><label for="id_image">Image:</label><input type="file" name="image" accept="image/*" id="id_image"></div>
                                 <div class="item"><label for="id_title">Title:</label><input type="text" name="title" maxlength="500" required="" id="id_title" value="{{ libro.title|escape }}"></div>
                                 <div class="item"><label for="id_author">Author:</label><input type="text" name="author" maxlength="200" required="" id="id_author" value="{{ libro.author|escape }}"></div>
+                                <div class="item"><label for="id_title">Category:</label><input type="text" name="category" maxlength="500" id="id_category" value="{{ libro.category|escape }}"></div>
                                 <div class="item"><label for="id_shelf">Shelf:</label><input type="text" name="shelf" maxlength="3" id="id_shelf" value="{{ libro.shelf|escape }}"></div>
                                 <div class="item"><label for="id_is_borrowed">Is borrowed:</label><input type="checkbox" name="is_borrowed" id="id_is_borrowed" {% if libro.is_borrowed %}checked{% endif %}></div>
                                 <div class="item"><label for="id_is_expired">Is expired:</label><input type="checkbox" name="is_expired" id="id_is_expired" {% if libro.is_expired %}checked{% endif %}></div>
