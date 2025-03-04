@@ -6,7 +6,7 @@ class LibroForm(forms.ModelForm):
 
     class Meta:
         model = Libro
-        fields = ['book_id', 'image', 'title', 'author', 'shelf', 'is_borrowed', 'is_expired']
+        fields = ['book_id', 'image', 'title', 'author', 'category', 'shelf', 'is_borrowed', 'is_expired']
 
 
 class PasswordForm(forms.Form):
