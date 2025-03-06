@@ -30,6 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["192.168.1.90", "192.168.1.119", "192.168.1.11", "localhost", "127.0.0.1"]
 
+APPEND_SLASH = True
+
 
 
 # Application definition
