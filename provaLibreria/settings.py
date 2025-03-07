@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import sys
+
+actualIP = "localhost"
+
+if(len(sys.argv) > 2):
+    print("ip in uso: ", sys.argv[2].split(":")[0])
+    actualIP = sys.argv[2].split(":")[0]
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +38,7 @@ SECRET_KEY = 'django-insecure-$snxo$o)b&78ox$5s8xmyfp#!bcu4y*e0si4bd=)vqh7lzjpv3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.90", "192.168.1.119", "192.168.1.11", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.1.90", "192.168.1.119", "192.168.1.11", "localhost", actualIP]
 
 APPEND_SLASH = True
 
