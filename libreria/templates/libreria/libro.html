@@ -16,6 +16,7 @@
                     <h5 class="card-title">{{ libro.title }}</h5>
                     <p class="card-text">{{ libro.author }}</p>
                     <p class="card-text">ISBN: {{ libro.book_id }}</p>
+                    <p class="card-text">Category: {{ libro.category }}</p>
                     <p class="card-text">Book Shelf: {{ libro.shelf }}</p>
                     <div class="text-center">
                         <a href="{% url 'book-modify' book_id=libro.book_id %}" class="btn btn-primary" style="margin-bottom: 1rem;">Modifica</a>
