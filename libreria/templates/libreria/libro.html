@@ -1,14 +1,15 @@
 {% extends 'libreria/common.html'%}
 {% block content %}
-<center>
-    <div class="col-sm">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 text-center">
             <p></p>
-            <div style="width: 18rem;">
+            <div style="width: 18rem;" class="mx-auto">
                 <div class="parent">
-                    <img class="image1" src="{{ libro.image.url }}">
+                    <img class="image1" src="{{ libro.image.url }}" alt="Immagine Libro">
                     {% if libro.is_expired %}
                         {% load static %}
-                        <img class="image2" src="{% static 'libreria/expired.png' %}" >
+                        <img class="image2" src="{% static 'libreria/expired.png' %}" alt="Expired">
                     {% endif %}
                 </div>
                 <div class="card-body">
@@ -16,44 +17,45 @@
                     <p class="card-text">{{ libro.author }}</p>
                     <p class="card-text">ISBN: {{ libro.book_id }}</p>
                     <p class="card-text">Book Shelf: {{ libro.shelf }}</p>
-                    <center>
-                        <a href="{% url 'book-modify' book_id=libro.book_id %}" class="btn btn-primary" style="margin-bottom:2%;">Modifica</a>
-                    </center>
+                    <div class="text-center">
+                        <a href="{% url 'book-modify' book_id=libro.book_id %}" class="btn btn-primary" style="margin-bottom: 1rem;">Modifica</a>
+                    </div>
                     
-                    <form method="POST" style="width : fit-content; float: center;">
+                    <form method="POST" class="mx-auto text-center">
                         {% csrf_token %}        
-                        <div class="input-group mb-3">
-                        
+                        <div class="input-group mb-3 justify-content-center">
                             <select class="custom-select" id="inputGroupSelect04" name="member">
                                 <option selected>Lista Membri</option>
                                 {% for membro in membri %}
                                     <option value="{{ membro.member_id }}">{{ membro.name }}</option>
                                 {% endfor %}
                             </select>
-                                <div class="input-group-append">
-                                    <button class="btn btn-warning" type="submit" name="prenota">Prenota</button>
-                                </div>
+                            <div class="input-group-append" style="margin-top: 0.5rem;">
+                                <button class="btn btn-warning" type="submit" name="prenota">Prenota</button>
+                            </div>
                         </div>
                     </form>
                 </div> 
             </div>
         </div>
     </div>
+    
     {% if libro.member %}
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-                
-                {% load static %}
-                <img src="{% static 'libreria/membro.png' %}" class="card-img-top" alt="...">
-                
-                <div class="card-body">
-                    <h5 class="card-title">{{ libro.member.name }}</h5>
-                    <p class="card-text">{{ libro.member.member_id }}</p>
-                    <a href="{% url 'member' member_id=libro.member.member_id %}" class="btn btn-primary">Dettagli Membro</a>
+        <div class="row justify-content-center mt-4">
+            <div class="col-sm-12 col-md-6 text-center">
+                <div class="card" style="width: 18rem;">
+                    {% load static %}
+                    <img src="{% static 'libreria/membro.png' %}" class="card-img-top" alt="Immagine Membro">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ libro.member.name }}</h5>
+                        <p class="card-text">{{ libro.member.member_id }}</p>
+                        <div class="text-center">
+                            <a href="{% url 'member' member_id=libro.member.member_id %}" class="btn btn-primary">Dettagli Membro</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     {% endif %}
-</center>
-
+</div>
 {% endblock %}

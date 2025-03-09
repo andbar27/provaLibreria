@@ -7,18 +7,22 @@ p{
   margin-bottom:0.5rem;
 }
 
-.card{
-  border:1px solid rgb(250, 255, 89);;
+.card {
+  border: 1px solid rgb(250, 255, 89);
   background-color: #212121;
-  height:30rem; 
-  margin-bottom:1.5rem;
+  height: 30rem; 
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.row{
+.row {
   display: flex;
-  width: 100%;
   justify-content: center;
+  gap: 1rem;
 }
+
 .row2{
   display: contents;
   width: 100%;
@@ -36,11 +40,13 @@ h1{
   align-items: center;
 }
 
-.card-img-top{
+/* Immagini dei libri */
+.card-img-top {
   margin-top: 0.5rem;
-  object-fit: contain; 
-  height:70%; 
-  min-width:18rem;
+  object-fit: contain;
+  height: 70%;
+  width: 100%;
+  max-width: 18rem;
 }
 
 .card-body{
@@ -96,24 +102,27 @@ h1{
   font-size: 1.25rem;
   display: flex;
   justify-content: space-between;
-  border-right: 1px solid rgb(250, 255, 89);
-  border-left: 1px solid rgb(250, 255, 89);
-  border-bottom: 1px solid rgb(250, 255, 89);
+  border-right: 1px solid rgb(255, 254, 196);
+  border-left: 1px solid rgb(255, 254, 196);
+  border-bottom: 1px solid rgb(255, 254, 196);
 }
 
 .tab__right {
   width: -moz-available;
-  border-right: 2px solid rgb(250, 255, 89);
+  border-right: 2px solid rgb(255, 254, 196);
+  background: rgb(255, 254, 196);
 }
 
 .tab__left {
   width: 40%;
   text-align: end;
+  background: rgb(255, 254, 196);
 }
 
 .tab__center{
   width:100%;
   text-align: center;
+  background: rgb(228, 228, 228);
 }
 
 .item {
@@ -150,13 +159,43 @@ h1{
 }
 
 .item:nth-child(even) {
-  background: rgb(82, 82, 82);
+  background: rgb(255, 254, 196);
 }
 
 .item__left:nth-of-type(4n+3) {
-  background: rgb(82, 82, 82);
+  background: rgb(255, 254, 196);
 }
 
 .item__right:nth-of-type(4n+4) {
-  background: rgb(82, 82, 82);
+  background: rgb(255, 254, 196);
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+  }
+
+  .card-img-top {
+    height: auto;
+    min-width: auto;
+  }
+
+  /* Centrare meglio le immagini su mobile */
+  .image1, .card-img-top {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Ridurre i bottoni "Aggiungi Libro", "Aggiungi Membro" e "Lista Membri" */
+  .btn-group .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  /* Assicurare che "Statistiche Libreria" rimanga grande */
+  .btn-outline-primary {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
 }

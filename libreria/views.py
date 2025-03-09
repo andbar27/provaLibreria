@@ -36,7 +36,7 @@ def lista_membri(request):
 
 def libro(request, book_id):
     book = get_object_or_404(Libro, book_id=book_id)
-    membri = Membro.objects.all()
+    membri = Membro.objects.all().order_by("name")
     context = {'membri':membri, 'libro':book}
     form = AssegnaLibroForm(instance=book)
     if request.method == 'POST':
