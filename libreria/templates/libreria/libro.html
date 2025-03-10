@@ -6,7 +6,7 @@
             <p></p>
             <div style="width: 18rem;" class="mx-auto">
                 <div class="parent">
-                    <img class="image1" src="{{ libro.image.url }}" alt="Immagine Libro">
+                    <img class="card-img-top image1" src="{{ libro.image.url }}" alt="Immagine Libro">
                     {% if libro.is_expired %}
                         {% load static %}
                         <img  class="img-fluid" style="max-height: 40px;" src="{% static 'libreria/expired.png' %}" alt="Expired">
