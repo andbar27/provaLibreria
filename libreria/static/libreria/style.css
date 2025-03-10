@@ -46,7 +46,6 @@ h1{
   object-fit: contain;
   height: 70%;
   width: 100%;
-  max-width: 18rem;
 }
 
 .card-body{
