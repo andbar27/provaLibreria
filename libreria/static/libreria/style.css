@@ -64,7 +64,6 @@ h1{
 .image1 {
   object-fit: contain; 
   height:70%; 
-  width:18rem;
   position: relative; 
   left: 0;
 }

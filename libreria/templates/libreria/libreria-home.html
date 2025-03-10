@@ -35,10 +35,10 @@
                 {% if libro.is_expired or libro.is_borrowed %}
                 <div class="position-absolute top-0 start-0 p-2">
                     {% if libro.is_expired %}
-                        <img src="{% static 'libreria/expired.png' %}" alt="SCADUTO" class="image2">
+                        <img src="{% static 'libreria/expired.png' %}" alt="SCADUTO"  class="img-fluid" style="max-height: 40px;">
                     {% endif %}
                     {% if libro.is_borrowed %}
-                        <img src="{% static 'libreria/borrowed.png' %}" alt="PRENOTATO" class="image2">
+                        <img src="{% static 'libreria/borrowed.png' %}" alt="PRENOTATO"  class="img-fluid" style="max-height: 40px;">
                     {% endif %}
                 </div>
                 {% endif %}
