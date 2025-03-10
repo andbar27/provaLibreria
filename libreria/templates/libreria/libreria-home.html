@@ -6,10 +6,10 @@
     <h1>Libreria Salotto</h1>
     <p class="lead">Più libri per tutti!</p>
     
-    <div class="d-flex flex-column flex-md-row justify-content-center gap-2">
-        <a href="{% url 'aggiungi_libro' %}" class="btn btn-primary">Aggiungi Libro</a>
-        <a href="{% url 'aggiungi_membro' %}" class="btn btn-primary">Aggiungi Membro</a>
-        <a href="{% url 'lista_membri' %}" class="btn btn-primary">Lista Membri</a>
+    <div class="d-grid justify-content-center gap-2" >
+        <a href="{% url 'aggiungi_libro' %}" class="btn btn-primary" id="btn-home">Aggiungi Libro</a>
+        <a href="{% url 'aggiungi_membro' %}" class="btn btn-primary" id="btn-home">Aggiungi Membro</a>
+        <a href="{% url 'lista_membri' %}" class="btn btn-primary" id="btn-home">Lista Membri</a>
     </div>
 
     <div class="mt-3">

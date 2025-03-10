@@ -14,8 +14,8 @@
                         <div class="tab__center">
                             {% for l in libri %}
                                 
-                                <div class="item__left">{{l}} </div>
-                                <div class="item__right">
+                                <div class="item__left" id="t-statLib">{{l}} </div>
+                                <div class="item__right" id="t-statLib">
                                     {% if l.is_borrowed and l.is_expired %}
                                         Scaduto & Presatto
                                     {% elif l.is_expired %}

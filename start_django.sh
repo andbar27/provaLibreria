@@ -14,3 +14,4 @@ cd /home/salotto/proj/provaLibreria || { echo "Cartella non trovata!"; exit 1; }
 echo "Avvio del server Django su http://127.0.0.1:$PORT/"
 python3 manage.py runserver $IP:$PORT
 
+# python3 manage.py runserver $(hostname -I | awk '{print $1}'):8000

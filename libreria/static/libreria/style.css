@@ -79,7 +79,7 @@ h1{
 }
  
 .tab {
-  width: 250px;
+  width: 50%;
   background: rgb(250, 255, 89);;
   font-family: arial, sans-serif;
   border-top-left-radius: 12px;
@@ -125,6 +125,7 @@ h1{
   background: rgb(228, 228, 228);
 }
 
+
 .item {
   color: #212121;
   padding: 3px 0;
@@ -136,7 +137,6 @@ h1{
   color: #212121;
   background-color: white;
   padding-right: 0.8em;
-  border-left: 2px solid rgb(17, 66, 75);
   text-align: end;
   float:right;
 }
@@ -170,6 +170,10 @@ h1{
   background: rgb(255, 254, 196);
 }
 
+#btn-home {
+  width: auto;
+}
+
 
 @media (max-width: 768px) {
   .card {
@@ -198,4 +202,12 @@ h1{
     font-size: 1rem;
     padding: 0.6rem 1rem;
   }
+
+  .tab{
+    width: 100%;
+  }
+}
+
+#t-statLib {
+  width: inherit;
 }
