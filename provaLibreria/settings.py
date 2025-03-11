@@ -27,7 +27,7 @@ if(len(sys.argv) > 2):
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LIBRERIA_PASSWORD = os.getenv("LIBRERIA_PASSWORD", "feaeiufh2iuqh32324uiiunjkdsau123ljaifeyefea")
+LIBRERIA_PASSWORD = os.getenv("LIBRERIA_PASSWORD", "feaeiuqhkdsau123ljaiffhhyrf")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
