@@ -75,6 +75,19 @@ h1{
   height: 70%;
   max-width: 135%;
 }
+
+.tab2 {
+  width: 50%;
+  overflow: hidden;
+}
+
+.input_img1 {
+  margin-left: 14%;
+}
+
+.input_img2 {
+  margin-left: 8%;
+}
  
 .tab {
   width: 50%;
@@ -205,6 +218,28 @@ h1{
 
   .tab{
     width: 100%;
+  }
+
+  .tab2{
+    width: 100%;
+  }
+
+  .input_img1 {
+    margin-left: 0%;
+  }
+
+  .input_img2 {
+    margin-left: 5%; 
+  }
+
+  .row{
+    margin-bottom: 3%;
+    margin-top: 3%;
+  }
+
+  .col{
+    margin-right: 3%;
+    margin-left: 3%;
   }
 }
 
