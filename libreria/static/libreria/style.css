@@ -185,6 +185,32 @@ h1{
   width: auto;
 }
 
+.navbar a.navbar-toggler, 
+.navbar a.nav-link {
+  color: #212121!important;
+}
+
+.navbar .navbar-toggler {
+  white-space: nowrap; /* Evita che vada sotto */
+  margin-left: auto; /* Lo spinge a destra */
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* Rende nera l'icona dell'hamburger */
+}
+
+.navbar-toggler:focus, 
+.navbar-toggler:active {
+  border-color: #212121 !important;
+}
+
+.navbar-collapse {
+  padding-left: 2%; /* Aggiunge un po' di spazio a sinistra */
+}
+
+
+
+
 
 
 
@@ -241,6 +267,7 @@ h1{
     margin-right: 3%;
     margin-left: 3%;
   }
+
 }
 
 #t-statLib {

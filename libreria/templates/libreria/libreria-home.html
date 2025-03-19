@@ -2,17 +2,7 @@
 
 {% block content %}
 
-<div class="container my-5 text-center" style="max-width: 580px; margin-top: 1rem !important;">
-    
-    <div class="d-grid justify-content-center gap-2" >
-        <a href="{% url 'aggiungi_libro' %}" class="btn btn-primary" id="btn-home">Aggiungi Libro</a>
-        <a href="{% url 'aggiungi_membro' %}" class="btn btn-primary" id="btn-home">Aggiungi Membro</a>
-        <a href="{% url 'lista_membri' %}" class="btn btn-primary" id="btn-home">Lista Membri</a>
-    </div>
-
-    <div class="mt-3">
-        <a href="{% url 'stats_library' %}" class="btn btn-outline-primary">Statistiche Libreria</a>
-    </div>
+<div class="container my-5 text-center" style="max-width: 580px; margin-top: 4% !important;">
 
     <form method="get" action="{% url 'home' %}" class="mt-3">
         <div class="input-group">
