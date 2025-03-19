@@ -4,13 +4,14 @@
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
+    
+    
     <div class="container">
+        {% load static %}
+        <img src="{% static 'libreria/libro.png' %}" alt="logolibro" style="width:8rem; height:8rem; position: relative;">
         <div class="row2">
-            <div class="col-sm" style="margin-top: 5%;">
-                {% load static %}
-                <img src="{% static 'libreria/libro.png' %}" alt="logolibro" style="width:8rem; height:8rem; position: relative;">
+            <div class="col-sm" style="margin-top: 0%;">
                 <div class="tab">
-                    
                     <div class="tab__title">Dati Libro</div>
                     <div class="tab__data">
                         <div class="tab__center">
@@ -27,10 +28,10 @@
                             <div class="item">
                                 <div class ="row">
                                     <div class="col">
-                                        <label for="id_image">Image:</label>
+                                        <label for="id_image" style="margin-left: 14%;">Image:</label>
                                     </div>
                                     <div class="col"> 
-                                        <input type="file" name="image" accept="image/*" id="id_image">
+                                        <input type="file" style="margin-left: 10%;" name="image" accept="image/*" id="id_image">
                                     </div>
                                 </div>
                             </div>

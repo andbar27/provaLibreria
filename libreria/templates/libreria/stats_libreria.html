@@ -34,35 +34,33 @@
             </div>
 
             <div class="col-sm" style="margin-top:5%">
-                <center>
-                    <a style="font-size:1.35rem;">Libri Prestati: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_prestati }}</a></a>
-                    <div class="tab">
-                        <div class="tab__title">Elenco Libri Prestati</div>
-                        <div class="tab__data">
-                            <div class="tab__center">
-                                {% for prestati in libri_prestati %}
-                                    <div class="item"> {{ prestati.title }} </div>
-                                {% endfor %}
-                            </div>
+                <a style="font-size:1.35rem;">Libri Prestati: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_prestati }}</a></a>
+                <div class="tab">
+                    <div class="tab__title">Elenco Libri Prestati</div>
+                    <div class="tab__data">
+                        <div class="tab__center">
+                            {% for prestati in libri_prestati %}
+                                <div class="item"> {{ prestati.title }} </div>
+                            {% endfor %}
                         </div>
                     </div>
-                
-                     <a style="font-size:1.35rem;">Libri Scaduti: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_scaduti }}</a></a>
-                    <div class="tab">
-                        <div class="tab__title">Elenco Libri Scaduti</div>
-                        <div class="tab__data">
-                            <div class="tab__center">
-                                {% for scaduti in libri_scaduti %}
-                                    <div class="item"> {{ scaduti.title }} </div>
-                                {% endfor %}
-                            </div>
+                </div>
+            
+                <a style="font-size:1.35rem;">Libri Scaduti: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_scaduti }}</a></a>
+                <div class="tab">
+                    <div class="tab__title">Elenco Libri Scaduti</div>
+                    <div class="tab__data">
+                        <div class="tab__center">
+                            {% for scaduti in libri_scaduti %}
+                                <div class="item"> {{ scaduti.title }} </div>
+                            {% endfor %}
                         </div>
                     </div>
-                </center>
+                </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 5%;">
-            Sito sviluppato da:  Andrea Barbato ©
+        <div style="text-align: center; margin-top: 5%; margin-bottom: 1%;">
+            Sito sviluppato da:  Andrea Barbato & Luca Cavalleri ©
         </div>
 
     </div>
