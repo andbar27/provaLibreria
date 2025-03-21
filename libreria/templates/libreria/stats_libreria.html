@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row" style="display: inline-flex; width:100%">
             <div class="col-sm" style="margin-top: 5%;">
-                <center style="font-size:1.35rem;">
+                <center class="stat-lib" style="font-size:1.35rem;">
                     Libri Totali: <a style="color: #ffc720">{{ n_libri }}</a>
                     Membri Totali:  <a style="color: #ffc720">{{ n_membri }}</a>
                 </center>
@@ -33,8 +33,8 @@
                 </div>
             </div>
 
-            <div class="col-sm" style="margin-top:5%">
-                <a style="font-size:1.35rem;">Libri Prestati: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_prestati }}</a></a>
+            <div class="col-sm" style="margin-top:5%; ">
+                <a style="font-size:1.35rem; margin-left: 5%;">Libri Prestati: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_prestati }}</a></a>
                 <div class="tab">
                     <div class="tab__title">Elenco Libri Prestati</div>
                     <div class="tab__data">
@@ -46,17 +46,6 @@
                     </div>
                 </div>
             
-                <a style="font-size:1.35rem;">Libri Scaduti: <a style="color: #ffc720; font-size:1.35rem;">{{ n_libri_scaduti }}</a></a>
-                <div class="tab">
-                    <div class="tab__title">Elenco Libri Scaduti</div>
-                    <div class="tab__data">
-                        <div class="tab__center">
-                            {% for scaduti in libri_scaduti %}
-                                <div class="item"> {{ scaduti.title }} </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div style="text-align: center; margin-top: 5%; margin-bottom: 1%;">
