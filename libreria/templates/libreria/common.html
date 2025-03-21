@@ -20,43 +20,46 @@
 </head>
 
 <body>
-    <!-- Image and text -->
-    <nav class="navbar navbar-dark" style="background-color:rgb(250, 255, 89);">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="{% url 'home' %}" style="color:#212121;">
-                {% load static %}
-                <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}" style="color:#212121; display: flex;">
-                    <img src="{% static 'libreria/logoS.png' %}" alt="" width="12%" height="12%" class="d-inline-block align-top">
-                    <h2 style="margin-left:1.3%; margin-top:1%;"> Libreria del Salotto</h2>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">   
-                            <a class="nav-link active" aria-current="page" href="{% url 'aggiungi_libro' %}">Aggiungi Libro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'aggiungi_membro' %}">Aggiungi Membro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'lista_membri' %}" >Lista Membri</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'stats_library' %}">Info Libreria</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            {% load static %}
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'libreria/logoS.png' %}" alt="Logo" width="50" height="50" class="d-inline-block align-top">
+                <h2 style="margin-left:5%; margin-top:4%; color: #212121;">Libreria del Salotto</h2>
             </a>
-            
+    
+            <!-- Bottone del menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Menu navigazione -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'aggiungi_libro' %}">Aggiungi Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'aggiungi_membro' %}">Aggiungi Membro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_membri' %}">Lista Membri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'stats_library' %}">Info Libreria</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+    
 
 
     {% block content %}
     
     {% endblock %}
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

@@ -185,18 +185,24 @@ h1{
   width: auto;
 }
 
-.navbar a.navbar-toggler, 
-.navbar a.nav-link {
-  color: #212121!important;
-}
+/*
+
 
 .navbar .navbar-toggler {
-  white-space: nowrap; /* Evita che vada sotto */
-  margin-left: auto; /* Lo spinge a destra */
+  white-space: nowrap; 
+  margin-left: auto; 
 }
 
+
+
+
+
+.navbar-collapse {
+  padding-left: 2%; 
+}
+*/
 .navbar-toggler-icon {
-  filter: invert(1); /* Rende nera l'icona dell'hamburger */
+  filter: invert(1); 
 }
 
 .navbar-toggler:focus, 
@@ -204,14 +210,32 @@ h1{
   border-color: #212121 !important;
 }
 
-.navbar-collapse {
-  padding-left: 2%; /* Aggiunge un po' di spazio a sinistra */
+.navbar a.navbar-toggler, 
+.navbar a.nav-link {
+  color: #212121!important;
+}
+
+.navbar {
+  background-color: rgb(250, 255, 89);
+}
+.navbar-brand {
+  color: #212121;
+  display: flex;
+  align-items: center;
+}
+.navbar-brand h2 {
+  margin-left: 1.3%;
+  margin-top: 1%;
+  font-size: 1.5rem; /* Mantiene la dimensione del testo */
+}
+.navbar-toggler {
+  border-color: #212121;
 }
 
 
-
-
-
+.container {
+  margin-top: -1%
+}
 
 
 @media (max-width: 768px) {
@@ -266,6 +290,10 @@ h1{
   .col{
     margin-right: 3%;
     margin-left: 3%;
+  }
+
+  .container {
+    margin-top: -2%
   }
 
 }
