@@ -1,46 +1,40 @@
 {% extends 'libreria/common.html'%}
 {% block content %}
 <center>
-    <div class="col-sm">
-        <p></p>
-        <div class="parent" style="width: 18rem;">
-                {% load static %}
-                <img class="image1" src="{% static 'libreria/membro.png' %}">
-               
-                <div class="card-body">
-                    <h5 class="card-title">{{ membro.name }}</h5>
-                    <p class="card-text">{{ membro.member_id }}</p>
-                    <a href="{% url 'member-modify' member_id=membro.member_id %}" class="btn btn-primary">Modifica membro</a>
-                </div>
-                <!--QUI METTERE LISTA LIBRI IN PRESTITO-->
-                <div class="container">
-                    <div class="row">
-                        {% for libro in libri %}
-                        <div class="col-sm">
-                            <div class="card" style="height:30rem; margin-bottom:5%;">
-                                
-                                <img src="{{ libro.image.url }}" class="card-img-top" alt="..." style=" object-fit: contain; height:70%; min-width:18rem;">
-                                <div class="card-body" style=" object-fit: contain;">
-                                    <center>
-                                        <h5 class="card-title">{{ libro.title }}</h5>
-                                        <p class="card-text">{{ libro.author }} - Shelf: {{ libro.shelf }}</p>
-                                        <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-primary">Maggiori Informazioni</a>
-                                        <form method="post" action="{% url 'return_book' member_id=membro.member_id book_id=libro.book_id %}" style="display:inline;">
-                                            {% csrf_token %}
-                                            <button type="submit" class="btn-danger">Restituisci</button>
-                                        </form>
-                                    </center>
-                                </div>
-                            </div>
-                        </div>
-                        {% empty %}
-                            <li>Nessun libro associato a questo membro.</li>   
-                        {% endfor %}
+    
+    <div class="card-body">
+        {% load static %}
+        <img src="{% static 'libreria/membro.svg' %}" class="card-img-top" alt="..." style="padding: 1%; max-width: 380px; margin-top: -2%;">
+        <h5 class="card-title">{{ membro.name }}</h5>
+        <p class="card-text">{{ membro.member_id }}</p>
+        <a href="{% url 'member-modify' member_id=membro.member_id %}" class="btn btn-primary" style="margin-bottom: 1%;">Modifica membro</a>
+    </div>
+    <!--QUI METTERE LISTA LIBRI IN PRESTITO-->
+    <div class="container">
+        <div class="row">
+            {% for libro in libri %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card position-relative">
+                    <img src="{{ libro.image.url }}" class="card-img-top image1" alt="Copertina libro">
+                    
+    
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title">{{ libro.title }}</h5>
+                        <p class="card-text">{{ libro.author }} - {{ libro.shelf }}</p>
+                        <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-primary mt-auto" style="margin-bottom: 1%;">Maggiori Informazioni</a>
+                        <form method="post" action="{% url 'return_book' member_id=membro.member_id book_id=libro.book_id %}" style="display:inline; ">
+                            {% csrf_token %}
+                            <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-danger mt-auto">Restituisci</a>
+                        </form>
                     </div>
                 </div>
             </div>
+            {% empty %}
+                <li>Nessun libro associato a questo membro.</li>   
+            {% endfor %}
         </div>
     </div>
+
 </center>
 
 {% endblock %}
