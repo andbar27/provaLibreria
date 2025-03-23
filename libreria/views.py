@@ -9,7 +9,7 @@ password = settings.LIBRERIA_PASSWORD
 def libreria(request):
     form = CercaLibroForm(request.GET or None)
     libri = Libro.objects.all()
-    
+
     if form.is_valid():
         query = form.cleaned_data['query'].lower()
         libri = [libro for libro in libri if query in libro.title.lower() or query in libro.author.lower() \
