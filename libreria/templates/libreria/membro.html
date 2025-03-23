@@ -24,7 +24,7 @@
                         <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-primary mt-auto" style="margin-bottom: 1%;">Maggiori Informazioni</a>
                         <form method="post" action="{% url 'return_book' member_id=membro.member_id book_id=libro.book_id %}" style="display:inline; ">
                             {% csrf_token %}
-                            <a href="{% url 'book' book_id=libro.book_id %}" class="btn btn-danger mt-auto">Restituisci</a>
+                            <button type="submit" class="btn-danger">Restituisci</button>
                         </form>
                     </div>
                 </div>
