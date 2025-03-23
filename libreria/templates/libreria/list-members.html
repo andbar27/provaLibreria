@@ -10,17 +10,17 @@
 <div class="container">
         <div class="row">
             {% for membro in membri %}
-            <div class="col-sm">
-                <div class="card">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card position-relative">
                     {% load static %}
-                    <img src="{% static 'libreria/membro.svg' %}" class="card-img-top" alt="..." style="padding: 2%;">
+                    <img src="{% static 'libreria/membro.svg' %}" class="card-img-top image1" alt="..." style="padding: 2%;">
                     
-                    <div class="card-body">
-                        <center>
+                    <div class="card-body text-center d-flex flex-column">
+                        
                             <h5 class="card-title">{{ membro.name }}</h5>
                             <p class="card-text">{{ membro.member_id }}</p>
                             <a href="{% url 'member' member_id=membro.member_id %}" class="btn btn-primary">Dettagli Membro</a>
-                        </center>
+                      
                     </div>
                 </div>
             </div>
